@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Florence — Innamo</title>
-  <meta name="description" content="Innamo's guide to Florence — the most romantic city in the world. When to go, what to know, and why Nesse loves it more than anywhere on earth.">
+  <meta name="description" content="Innamo&rsquo;s guide to Florence: the most romantic city in the world. When to go, what to know, and why Nesse loves it more than anywhere on earth.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,13 +35,13 @@
     html { scroll-behavior: smooth; }
     body { background: var(--cream); color: var(--espresso); font-family: var(--font-b); }
 
-    /* ── NAV ── */
+    /* NAV */
     #nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 28px 48px;
       background: linear-gradient(to bottom, rgba(44,24,16,0.55) 0%, transparent 100%);
-      transition: background 0.4s;
+      transition: background 0.4s, padding 0.4s;
     }
     #nav.scrolled { background: rgba(44,24,16,0.92); padding: 18px 48px; }
     .nav-logo {
@@ -56,22 +56,22 @@
     }
     .nav-links a:hover { color: var(--cream); }
 
-    /* ── HERO ── */
+    /* HERO */
     .dest-hero {
-      position: relative; width: 100%; height: 90vh; min-height: 560px;
+      position: relative; width: 100%; height: 92vh; min-height: 560px;
       overflow: hidden; display: flex; align-items: flex-end;
     }
     .dest-hero-bg {
       position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1920&q=85') center 40% / cover no-repeat;
+      background: url('https://images.unsplash.com/photo-3GhzIIwafPo?auto=format&fit=crop&w=1920&q=85') center 50% / cover no-repeat;
     }
     .dest-hero-veil {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(44,24,16,0.82) 0%, rgba(44,24,16,0.28) 55%, rgba(44,24,16,0.15) 100%);
+      background: linear-gradient(to top, rgba(44,24,16,0.85) 0%, rgba(44,24,16,0.25) 55%, rgba(44,24,16,0.1) 100%);
     }
     .dest-hero-text {
       position: relative; z-index: 2;
-      padding: 0 72px 80px;
+      padding: 0 72px 88px;
     }
     .dest-hero-eyebrow {
       font-family: var(--font-b); font-size: 0.72rem; letter-spacing: 0.28em;
@@ -88,9 +88,9 @@
       font-style: italic; font-weight: 300; color: rgba(245,239,224,0.78);
     }
 
-    /* ── BODY ── */
+    /* BODY */
     .dest-body {
-      max-width: 740px; margin: 0 auto; padding: 96px 40px 120px;
+      max-width: 740px; margin: 0 auto; padding: 96px 40px 80px;
     }
 
     .dest-intro {
@@ -118,7 +118,6 @@
       color: rgba(44,24,16,0.82); margin-bottom: 18px;
     }
     .dest-section p:last-child { margin-bottom: 0; }
-
     .dest-section p em { font-style: italic; }
 
     .thin-rule {
@@ -127,23 +126,57 @@
       margin: 56px 0;
     }
 
-    /* ── WHEN TO GO PANEL ── */
+    /* WHEN TO GO PANEL */
     .when-panel {
       background: var(--espresso); color: var(--cream);
       padding: 52px 56px; margin: 72px 0;
     }
-    .when-panel .dest-section-label { color: var(--terracotta); opacity: 0.8; }
-    .when-panel .dest-section-title { color: var(--cream); }
+    .when-panel .dest-section-label { color: rgba(196,98,45,0.85); }
+    .when-panel .when-title {
+      font-family: var(--font-d); font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-style: italic; color: var(--cream); margin-bottom: 24px; line-height: 1.2;
+    }
     .when-panel p {
       font-family: var(--font-b); font-size: 1.05rem; line-height: 1.85;
       color: rgba(245,239,224,0.78); margin-bottom: 16px;
     }
     .when-panel p:last-child { margin-bottom: 0; }
 
-    /* ── CTA ── */
+    /* SCENE IMAGES */
+    .scene-img {
+      width: 100%; overflow: hidden;
+      margin: 0;
+    }
+    .scene-img img {
+      width: 100%; height: 55vh; min-height: 320px;
+      object-fit: cover; object-position: center;
+      display: block;
+    }
+    .scene-img figcaption {
+      font-family: var(--font-b); font-size: 0.68rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(44,24,16,0.35);
+      text-align: right; padding: 10px 40px 0;
+    }
+
+    /* VINE PHOTO */
+    .vine-figure {
+      margin: 56px 0;
+    }
+    .vine-figure img {
+      width: 100%; height: 420px;
+      object-fit: cover; object-position: center 60%;
+      display: block;
+    }
+    .vine-figure figcaption {
+      font-family: var(--font-b); font-size: 0.68rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(44,24,16,0.35);
+      padding: 10px 0 0;
+    }
+
+    /* CTA */
     .dest-cta {
-      background: var(--cream-mid); padding: 72px 40px;
-      text-align: center; margin-top: 80px;
+      background: var(--cream-mid); padding: 80px 40px;
+      text-align: center;
     }
     .dest-cta-title {
       font-family: var(--font-d); font-size: clamp(1.6rem, 3vw, 2.4rem);
@@ -165,7 +198,7 @@
     }
     .btn:hover { background: var(--terracotta); }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
       background: var(--espresso); text-align: center;
       padding: 64px 40px 48px;
@@ -188,21 +221,21 @@
       color: rgba(245,239,224,0.22);
     }
 
-    /* ── SCROLL ANIMATIONS ── */
+    /* SCROLL ANIMATIONS */
     .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
     .d1 { transition-delay: 0.15s; }
     .d2 { transition-delay: 0.30s; }
-    .d3 { transition-delay: 0.45s; }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       #nav { padding: 22px 28px; }
       #nav.scrolled { padding: 14px 28px; }
       .dest-hero-text { padding: 0 28px 56px; }
-      .dest-body { padding: 64px 28px 80px; }
-      .when-panel { padding: 40px 32px; }
+      .dest-body { padding: 64px 28px 60px; }
+      .when-panel { padding: 40px 28px; }
       .dest-cta { padding: 56px 28px; }
+      .scene-img figcaption { padding: 10px 28px 0; }
     }
     @media (max-width: 540px) {
       .nav-links { display: none; }
@@ -228,7 +261,7 @@
     <div class="dest-hero-text">
       <p class="dest-hero-eyebrow">Firenze &middot; Tuscany</p>
       <h1 class="dest-hero-title">Florence</h1>
-      <p class="dest-hero-sub">The most romantic city in the world.</p>
+      <p class="dest-hero-sub">The most romantic city in the world. And Nesse&rsquo;s favourite place on earth.</p>
     </div>
   </section>
 
@@ -237,16 +270,16 @@
 
     <p class="dest-intro fade-up">
       There are cities you visit. And there are cities that get inside you. Florence
-      is the latter &mdash; always. It is Nesse&rsquo;s favourite place on earth,
-      and the city that made her fall in love with Italy in the first place. Spend
-      a morning here in early May, when the tourists haven&rsquo;t quite arrived and
-      the light is still cool and clear, and you&rsquo;ll understand why.
+      is the latter. Always. It is Nesse&rsquo;s favourite place on earth, and the
+      city that made her fall in love with Italy in the first place. Spend a morning
+      here in early May, when the tourists have not quite arrived and the light is
+      still cool and clear, and you will understand why.
     </p>
 
     <!-- WHEN TO GO -->
     <div class="when-panel fade-up">
       <p class="dest-section-label">When to go</p>
-      <p class="dest-section-title" style="font-family: var(--font-d); font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-style: italic; color: var(--cream); margin-bottom: 24px; line-height: 1.2;">Early May. And October, well into the month.</p>
+      <p class="when-title">Early May. And October, well into the month.</p>
       <p>These are Florence&rsquo;s golden windows. The summer crowds have either not yet arrived or have finally gone, the weather is mild and clear, and the city breathes differently. You can stand in the Piazza della Signoria without being jostled. You can linger over lunch. You remember why you came.</p>
       <p>Avoid July and August if you can. Florence in midsummer is beautiful and punishing in equal measure.</p>
     </div>
@@ -255,40 +288,57 @@
     <div class="dest-section fade-up">
       <p class="dest-section-label">History</p>
       <h2 class="dest-section-title">A city that wears its past on its walls</h2>
-      <p>Florence is so dense with history that it can feel almost overwhelming &mdash; Renaissance art on every corner, centuries of architecture pressing in from every angle. But some of the most quietly moving things you&rsquo;ll see here aren&rsquo;t in the guidebooks.</p>
-      <p>In the Basilica di Santa Croce, where Michelangelo and Galileo are buried, look for the watermarks. On 4th November 1966, the Arno burst its banks with catastrophic force, killing 35 people in the city and destroying or damaging thousands of priceless artworks. The floodwater rose to nearly six metres in some parts of the city.</p>
-      <p>What followed was extraordinary. Young volunteers &mdash; students, artists, ordinary people &mdash; poured in from across the world to help rescue what they could from the mud. They became known as the <em>angeli del fango</em>: the mud angels. The emergency restoration techniques they developed are still in use today. The marks on the walls of Santa Croce remain. It is one of the most affecting things you&rsquo;ll encounter in Italy, and almost nobody talks about it.</p>
+      <p>Florence is so dense with history that it can feel almost overwhelming: Renaissance art on every corner, centuries of architecture pressing in from every angle. But some of the most quietly moving things you will see here are not in the guidebooks.</p>
+      <p>In the Basilica di Santa Croce, where Michelangelo and Galileo are buried, look for the watermarks. On 4th November 1966, the Arno burst its banks with catastrophic force, killing 35 people in the city and damaging thousands of priceless artworks. The floodwater rose to nearly six metres in some parts of the city.</p>
+      <p>What followed was extraordinary. Young volunteers, students and artists and ordinary people, poured in from across the world to help rescue what they could from the mud. They became known as the <em>angeli del fango</em>: the mud angels. The emergency restoration techniques they developed in that crisis are still in use today. The marks on the walls of Santa Croce remain. It is one of the most affecting things you will encounter in Italy, and almost nobody talks about it.</p>
     </div>
 
-    <div class="thin-rule fade-up"></div>
+  </div>
+
+  <!-- SCENE IMAGE: PONTE VECCHIO -->
+  <figure class="scene-img">
+    <img src="https://images.unsplash.com/photo-7V_QD2vGMXA?auto=format&fit=crop&w=1920&q=85"
+         alt="Ponte Vecchio, Florence" loading="lazy">
+    <figcaption>Ponte Vecchio &middot; Firenze</figcaption>
+  </figure>
+
+  <!-- BODY CONTINUED -->
+  <div class="dest-body">
 
     <!-- FOOD & DRINK -->
     <div class="dest-section fade-up">
       <p class="dest-section-label">Food &amp; Drink</p>
       <h2 class="dest-section-title">Surprisingly good for vegetarians. Non-negotiable for everyone else.</h2>
-      <p>Florence is, in Nesse&rsquo;s experience, one of Italy&rsquo;s most vegetarian-friendly cities &mdash; and the <em>ribollita</em> alone, the thick Florentine bread soup, is worth the trip. For those who eat meat, the <em>bistecca alla Fiorentina</em> is not optional. A great slab of Chianina beef, cooked rare over charcoal, served by someone who will not apologise for its size. You order it, and that is that.</p>
-      <p>Before dinner, a Negroni. The drink was invented here &mdash; at what is now Caf&egrave; Giacosa &mdash; when a Florentine count asked the bartender to strengthen his Americano with gin instead of soda water. The Negroni was born in Florence. Of course it was.</p>
-      <p>The people, incidentally, are remarkably warm &mdash; genuinely so, not performatively. Florence is one of the world&rsquo;s great tourist cities, and its residents have every right to be exhausted by visitors. Somehow, they are not.</p>
+      <p>Florence is, in Nesse&rsquo;s experience, one of Italy&rsquo;s most vegetarian-friendly cities. The <em>ribollita</em>, a thick Florentine bread soup, is alone worth the trip. For those who eat meat, the <em>bistecca alla Fiorentina</em> is not optional: a great slab of Chianina beef, cooked rare over charcoal, served by someone who will not apologise for its size. You order it, and that is that.</p>
+      <p>Before dinner, a Negroni. The drink was invented here, at what is now Caf&egrave; Giacosa, when a Florentine count asked the bartender to strengthen his Americano with gin instead of soda water. The Negroni was born in Florence. Of course it was.</p>
+      <p>The people, incidentally, are remarkably warm. Florence is one of the world&rsquo;s great tourist cities, and its residents have every right to be exhausted by visitors. Somehow, they are not.</p>
     </div>
 
     <div class="thin-rule fade-up"></div>
 
     <!-- WINE -->
     <div class="dest-section fade-up">
-      <p class="dest-section-label">Beyond the city</p>
+      <p class="dest-section-label">Wine &amp; The Countryside</p>
       <h2 class="dest-section-title">Twenty minutes south, the Chianti Classico begins</h2>
-      <p>Florence makes a perfect base for a day among the vines. The Chianti Classico region &mdash; rolling hills, ancient estates, some of Italy&rsquo;s finest Sangiovese &mdash; begins almost as soon as you leave the city behind. Nesse knows exactly where to take you, and it is not the obvious places.</p>
+      <p>Florence makes a perfect base for a day among the vines. The Chianti Classico region: rolling hills, ancient estates, and some of Italy&rsquo;s finest Sangiovese. It begins almost as soon as you leave the city behind.</p>
+
+      <figure class="vine-figure">
+        <img src="/chianti-vines.jpg" alt="Sangiovese vines, Chianti Classico" loading="lazy">
+        <figcaption>Sangiovese &middot; Chianti Classico</figcaption>
+      </figure>
+
+      <p>Nesse has spent years working with Italian wines and knows the Chianti Classico region with real intimacy. She has a small circle of extraordinary winemakers she trusts completely: family estates, old vines, wines that taste of the specific hillside they came from. This is not a wine tour. It is an introduction to people who make something exceptional, and who are delighted to share it.</p>
       <p>The drive alone is worth it. Cypress trees, dust roads, the particular gold of Tuscan afternoon light. You will want to stay longer than you planned. This is always the problem with Tuscany.</p>
     </div>
 
     <div class="thin-rule fade-up"></div>
 
-    <!-- SHOPPING & THE CITY -->
+    <!-- SHOPPING & STREETS -->
     <div class="dest-section fade-up">
-      <p class="dest-section-label">Shopping &amp; The streets</p>
+      <p class="dest-section-label">Shopping &amp; The Streets</p>
       <h2 class="dest-section-title">A feast for the senses. Though that is true of most of Italy.</h2>
-      <p>The leather in Florence is exceptional &mdash; proper Florentine leather, made by artisans whose workshops have been in the same families for generations. There are places to find it that are not the San Lorenzo market, and Nesse will point you to them.</p>
-      <p>The streets themselves are part of the experience. Narrow, stone-paved, lined with buildings that have not changed in centuries &mdash; they amplify everything. The smell of espresso and leather. The sound of the city bouncing off old walls. Glimpses of hidden courtyards through half-open doors. Florence is compact, walkable, and extraordinarily dense with beauty. You can cover a great deal on foot. You will want to.</p>
+      <p>The leather in Florence is exceptional: proper Florentine leather, made by artisans whose workshops have been in the same families for generations. There are places to find it that are not the San Lorenzo market, and Nesse will point you to them.</p>
+      <p>The streets themselves are part of the experience. Narrow, stone-paved, lined with buildings that have not changed in centuries. They amplify everything: the smell of espresso and leather, the sound of the city bouncing off old walls, glimpses of hidden courtyards through half-open doors. Florence is compact, walkable, and extraordinarily dense with beauty. You can cover a great deal on foot. You will want to.</p>
     </div>
 
   </div>
@@ -361,16 +411,14 @@
   </footer>
 
   <script>
-    // Nav scroll effect
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // Fade-up on scroll
     const faders = document.querySelectorAll('.fade-up');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.12 });
     faders.forEach(f => observer.observe(f));
   </script>
