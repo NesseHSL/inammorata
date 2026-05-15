@@ -1197,27 +1197,27 @@
       <h2 class="enquire-title fade-up">Tell us about your<br>Italian dream.</h2>
       <p class="enquire-sub fade-up d1">We will be in touch within 48 hours</p>
 
-      <form action="https://formspree.io/f/mojrlzya" method="POST" class="fade-up d2">
+      <form id="enquiry-form" class="fade-up d2">
 
         <div class="f-row">
           <div class="f-group">
             <label for="f-name">Name</label>
-            <input id="f-name" type="text" placeholder="Your name" autocomplete="name">
+            <input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name">
           </div>
           <div class="f-group">
             <label for="f-email">Email</label>
-            <input id="f-email" type="email" placeholder="your@email.com" autocomplete="email">
+            <input id="f-email" name="email" type="email" placeholder="your@email.com" autocomplete="email">
           </div>
         </div>
 
         <div class="f-row">
           <div class="f-group">
             <label for="f-dates">Travel dates</label>
-            <input id="f-dates" type="text" placeholder="e.g. September 2026">
+            <input id="f-dates" name="dates" type="text" placeholder="e.g. September 2026">
           </div>
           <div class="f-group">
             <label for="f-dest">Destination</label>
-            <select id="f-dest">
+            <select id="f-dest" name="destination">
               <option value="" disabled selected>Select a destination</option>
               <option>Florence</option>
               <option>Rome</option>
@@ -1234,7 +1234,7 @@
         <div class="f-row">
           <div class="f-group span2">
             <label for="f-tier">Service tier</label>
-            <select id="f-tier">
+            <select id="f-tier" name="tier">
               <option value="" disabled selected>Select a tier</option>
               <option>Il Percorso - The Route</option>
               <option>Il Soggiorno - The Stay</option>
@@ -1246,12 +1246,20 @@
         <div class="f-row">
           <div class="f-group span2">
             <label for="f-dream">Describe your ideal Italian experience</label>
-            <textarea id="f-dream" placeholder="Tell us what Italy means to you&hellip;"></textarea>
+            <textarea id="f-dream" name="dream" placeholder="Tell us what Italy means to you&hellip;"></textarea>
           </div>
         </div>
 
         <div class="f-submit">
-          <button type="submit" class="btn">Send Enquiry</button>
+          <button type="submit" class="btn" id="enquiry-btn">Send Enquiry</button>
+        </div>
+
+        <div id="enquiry-success" style="display:none;text-align:center;padding:24px 0 0;">
+          <p style="font-family:var(--font-d);font-size:1.2rem;font-style:italic;color:var(--cream);margin:0 0 8px;">Thank you. Nesse will be in touch within 48 hours.</p>
+          <p style="font-family:var(--font-b);font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,239,224,0.45);margin:0;">Check your inbox for a confirmation.</p>
+        </div>
+        <div id="enquiry-error" style="display:none;text-align:center;padding:16px 0 0;">
+          <p style="font-family:var(--font-b);font-size:0.9rem;color:rgba(245,239,224,0.6);margin:0;">Something went wrong. Please email us directly at <a href="mailto:innamotravel@gmail.com" style="color:var(--terracotta);">innamotravel@gmail.com</a></p>
         </div>
 
       </form>
