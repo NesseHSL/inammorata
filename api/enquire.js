@@ -41,8 +41,12 @@ export default async function handler(req, res) {
 
           <!-- Header -->
           <tr>
-            <td align="center" style="background:#2C1810;padding:40px 48px 36px;">
-              <p style="font-family:Georgia,serif;font-size:28px;letter-spacing:0.2em;color:#F5EFE0;margin:0 0 8px;">Innamo</p>
+            <td align="center" style="background:#F5EFE0;padding:36px 48px 24px;">
+              <img src="https://innamo.travel/innamo-logo-email.png" alt="Innamo" width="220" style="display:block;margin:0 auto;">
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="background:#2C1810;padding:12px 48px;">
               <p style="font-family:Georgia,serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,239,224,0.45);margin:0;">For the love of Italy</p>
             </td>
           </tr>
@@ -116,7 +120,12 @@ export default async function handler(req, res) {
       <td align="center">
         <table width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;">
           <tr>
-            <td style="background:#2C1810;padding:28px 40px;">
+            <td align="center" style="background:#F5EFE0;padding:24px 40px 16px;">
+              <img src="https://innamo.travel/innamo-logo-email.png" alt="Innamo" width="160" style="display:block;margin:0 auto;">
+            </td>
+          </tr>
+          <tr>
+            <td style="background:#2C1810;padding:20px 40px;">
               <p style="font-family:Georgia,serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#C4622D;margin:0 0 6px;">New enquiry</p>
               <p style="font-family:Georgia,serif;font-size:22px;font-style:italic;color:#F5EFE0;margin:0;">${name}</p>
             </td>
