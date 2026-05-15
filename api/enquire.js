@@ -1,20 +1,28 @@
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: 'innamotravel@gmail.com',
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+});
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, dates, destination, tier, dream, calendly } = req.body;
+  const { name, email, dates, destination, tier, dream } = req.body;
 
   if (!name || !email) {
     return res.status(400).json({ error: 'Name and email are required' });
   }
 
   const firstName = name.split(' ')[0];
-  const calendlyLink = process.env.CALENDLY_LINK || 'https://calendly.com/innamotravel';
+  const calendlyLink = 'https://calendly.com/innamotravel';
 
   // ── Auto-reply to the client ──────────────────────────────────────────────
   const clientEmail = `
@@ -50,7 +58,7 @@ export default async function handler(req, res) {
                 Thank you for reaching out to Innamo. Your enquiry has arrived safely, and Nesse will be in touch personally within 48 hours.
               </p>
               <p style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 32px;">
-                In the meantime, if you would like to arrange a short exploratory call to talk through what you have in mind, you are very welcome to book a time directly using the link below. Calls are available weekdays between 12 and 5pm. For weekend appointments, simply reply to this email.
+                In the meantime, if you would like to arrange a short exploratory call to talk through what you have in mind, you are very welcome to book a time directly. Calls are available weekdays between 12 and 5pm. For weekend appointments, simply reply to this email.
               </p>
 
               <!-- Calendly CTA -->
@@ -65,7 +73,6 @@ export default async function handler(req, res) {
               ${destination ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.65);margin:0 0 8px;"><strong style="color:#2C1810;">Destination:</strong> ${destination}</p>` : ''}
               ${dates ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.65);margin:0 0 8px;"><strong style="color:#2C1810;">Travel dates:</strong> ${dates}</p>` : ''}
               ${tier ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.65);margin:0 0 24px;"><strong style="color:#2C1810;">Service:</strong> ${tier}</p>` : ''}
-
             </td>
           </tr>
 
@@ -132,16 +139,16 @@ export default async function handler(req, res) {
 
   try {
     await Promise.all([
-      resend.emails.send({
-        from: 'Innamo <hello@innamo.travel>',
+      transporter.sendMail({
+        from: '"Innamo" <innamotravel@gmail.com>',
         to: email,
         subject: 'Your Innamo enquiry',
         html: clientEmail,
       }),
-      resend.emails.send({
-        from: 'Innamo <hello@innamo.travel>',
+      transporter.sendMail({
+        from: '"Innamo" <innamotravel@gmail.com>',
         to: 'innamotravel@gmail.com',
-        reply_to: email,
+        replyTo: email,
         subject: `New enquiry: ${name}${destination ? ' — ' + destination : ''}`,
         html: nesseEmail,
       }),
