@@ -1,5 +1,12 @@
 {
   "rewrites": [
-    { "source": "/florence", "destination": "/florence.html" }
+    { "source": "/florence", "destination": "/florence.html" },
+    { "source": "/rome", "destination": "/rome.html" },
+    { "source": "/venice", "destination": "/venice.html" },
+    { "source": "/siena", "destination": "/siena.html" },
+    { "source": "/verona", "destination": "/verona.html" },
+    { "source": "/cinque-terre", "destination": "/cinque-terre.html" },
+    { "source": "/amalfi", "destination": "/amalfi.html" },
+    { "source": "/portofino", "destination": "/portofino.html" }
   ]
 }
