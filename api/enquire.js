@@ -87,7 +87,7 @@ export default async function handler(req, res) {
               <p style="font-family:Georgia,serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(44,24,16,0.45);margin:0 0 16px;">Founder, Innamo</p>
               <p style="font-family:Georgia,serif;font-size:12px;color:rgba(44,24,16,0.4);margin:0;">
                 <a href="https://innamo.travel" style="color:#C4622D;text-decoration:none;">innamo.travel</a> &nbsp;&middot;&nbsp;
-                <a href="mailto:innamotravel@gmail.com" style="color:rgba(44,24,16,0.4);text-decoration:none;">innamotravel@gmail.com</a>
+                <a href="mailto:innamotravel@gmail.com" style="color:rgba(44,24,16,0.4);text-decoration:none;">innamotravel@gmail.com</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/447847490049" style="color:rgba(44,24,16,0.4);text-decoration:none;">WhatsApp</a>
               </p>
             </td>
           </tr>
