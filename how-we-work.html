@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rome — Innamo</title>
-  <meta name="description" content="Innamo&rsquo;s guide to Rome: the Eternal City, ancient and entirely alive. When to go, where to eat, and what the guidebooks leave out.">
+  <title>How We Work &mdash; Innamo</title>
+  <meta name="description" content="How Innamo works: the model explained. Hotel bookings, planning fees, and why working with a travel advisor almost never costs more than booking yourself.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
   <style>
+
 
     @font-face {
       font-family: 'LeJourSerif';
@@ -61,7 +62,7 @@
       position: relative; width: 100%; height: 92vh; min-height: 560px;
       overflow: hidden; display: flex; align-items: flex-end;
     }
-    .dest-hero-bg {
+    .dest-hero video {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover; object-position: center;
@@ -245,13 +246,107 @@
     }
 
   
+
+    /* ── How We Work page styles ─────────────────────────────────────────── */
+    .page-header {
+      padding: 160px 40px 80px;
+      text-align: center;
+      background: var(--cream);
+    }
+    .page-header-eyebrow {
+      font-family: var(--font-b);
+      font-size: 0.72rem; letter-spacing: 0.26em;
+      text-transform: uppercase; color: var(--terracotta);
+      margin-bottom: 24px;
+    }
+    .page-header-title {
+      font-family: var(--font-d);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-style: italic; font-weight: 400;
+      color: var(--espresso); line-height: 1.15;
+      margin-bottom: 28px;
+    }
+    .page-header-sub {
+      font-family: var(--font-b);
+      font-size: 1.1rem; line-height: 1.8;
+      color: rgba(44,24,16,0.65);
+      max-width: 560px; margin: 0 auto;
+    }
+    .how-body {
+      max-width: 740px; margin: 0 auto; padding: 80px 40px;
+    }
+    .how-section { margin-bottom: 72px; }
+    .how-section-label {
+      font-family: var(--font-b); font-size: 0.68rem; letter-spacing: 0.26em;
+      text-transform: uppercase; color: var(--terracotta); margin-bottom: 20px;
+    }
+    .how-section-title {
+      font-family: var(--font-d); font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+      font-style: italic; font-weight: 400; line-height: 1.2;
+      color: var(--espresso); margin-bottom: 24px;
+    }
+    .how-section p {
+      font-family: var(--font-b); font-size: 1.08rem; line-height: 1.85;
+      color: rgba(44,24,16,0.82); margin-bottom: 18px;
+    }
+    .how-section p:last-child { margin-bottom: 0; }
+    /* Three-tier breakdown panel */
+    .tier-panel {
+      background: var(--espresso); padding: 56px 56px 48px; margin: 80px 0;
+    }
+    .tier { margin-bottom: 48px; }
+    .tier:last-child { margin-bottom: 0; }
+    .tier-numeral {
+      font-family: var(--font-d); font-size: 0.72rem; letter-spacing: 0.26em;
+      text-transform: uppercase; color: rgba(196,98,45,0.7); margin-bottom: 8px;
+    }
+    .tier-name {
+      font-family: var(--font-d); font-size: 1.45rem; font-style: italic;
+      color: var(--cream); margin-bottom: 4px;
+    }
+    .tier-subtitle {
+      font-family: var(--font-b); font-size: 0.7rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(245,239,224,0.35); margin-bottom: 18px;
+    }
+    .tier p {
+      font-family: var(--font-b); font-size: 1.02rem; line-height: 1.8;
+      color: rgba(245,239,224,0.72); margin-bottom: 12px;
+    }
+    .tier p:last-child { margin-bottom: 0; }
+    .tier-fee {
+      font-family: var(--font-b); font-size: 0.72rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(196,98,45,0.85); margin-top: 16px !important;
+    }
+    .tier-divider {
+      width: 32px; height: 1px; background: rgba(245,239,224,0.15);
+      margin: 40px 0;
+    }
+    /* Call CTA */
+    .call-panel {
+      background: var(--cream-mid); padding: 64px 56px; text-align: center; margin: 0 0 80px;
+    }
+    .call-panel-title {
+      font-family: var(--font-d); font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-style: italic; color: var(--espresso); margin-bottom: 16px;
+    }
+    .call-panel p {
+      font-family: var(--font-b); font-size: 1rem; line-height: 1.8;
+      color: rgba(44,24,16,0.65); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+    @media (max-width: 768px) {
+      .page-header { padding: 120px 28px 60px; }
+      .how-body { padding: 56px 28px; }
+      .tier-panel { padding: 40px 28px 36px; }
+      .call-panel { padding: 48px 28px; }
+    }
+
   </style>
 </head>
 <body>
 
   <nav id="nav">
-    <a href="/" class="nav-logo"><img src="/innamo-logo-nav.png" alt="Innamo" style="height:22px;width:auto;display:block;"></a>
-    <ul class="nav-links">
+    <a href="/" class="nav-logo">Innamo</a>
+    <ul>
       <li><a href="/#services">Our Services</a></li>
       <li><a href="/#destinations">Destinations</a></li>
       <li><a href="/how-we-work">How We Work</a></li>
@@ -259,77 +354,88 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section class="dest-hero">
-    <img class="dest-hero-bg" src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1920&q=82" alt="Rome">
-    <div class="dest-hero-veil"></div>
-    <div class="dest-hero-text">
-      <p class="dest-hero-eyebrow">Roma &middot; Lazio</p>
-      <h1 class="dest-hero-title">Rome</h1>
-      <p class="dest-hero-sub">Two thousand years of history, and still the most alive city in Italy.</p>
-    </div>
-  </section>
+  <!-- Page Header -->
+  <header class="page-header">
+    <p class="page-header-eyebrow">How Innamo works</p>
+    <h1 class="page-header-title">Simple, transparent,<br>and always worth it.</h1>
+    <p class="page-header-sub">Most people who enquire with Innamo have never worked with a travel advisor before. This page is for them.</p>
+  </header>
 
-  <!-- BODY -->
-  <div class="dest-body">
+  <!-- Body -->
+  <div class="how-body">
 
-    <p class="dest-intro fade-up">
-      Rome is the city that refuses to be ordinary. You expect grandeur and antiquity, and you get both. What surprises people is the noise, the warmth, the extraordinary ordinary life that carries on right alongside the Colosseum and the Forum. Romans have been living like this for two millennia. They are remarkably unbothered by it.
-    </p>
-
-    <!-- WHEN TO GO -->
-    <div class="when-panel fade-up">
-      <p class="dest-section-label">When to go</p>
-      <p class="when-title">Late October through November. And again in late March.</p>
-      <p>Spring in Rome is extraordinary: warmth without oppressive heat, soft light, and the city at its most itself. The Easter crowds can be formidable, so arrive the week before or the week after. Autumn is Rome&rsquo;s other golden season: the summer tourists have gone, the temperature drops to something civilised, and the city quietly exhales.</p>
-      <p>July and August are not impossible. They are just Rome in a different register: fierce light, half the restaurants closed, and every piazza shared with several thousand other people. Go if you must. Go in October if you can.</p>
+    <!-- Section 1 -->
+    <div class="how-section fade-up">
+      <p class="how-section-label">The honest answer</p>
+      <h2 class="how-section-title">Will this cost me more than booking myself?</h2>
+      <p>Almost never. Usually the opposite. When Innamo books your hotel, the hotel pays us a commission. This is how the travel advisory industry has worked for decades. You pay exactly the rate you would pay if you booked directly, sometimes less, because of our relationships with specific properties. What you gain, through our Virtuoso membership, are benefits that direct bookers simply cannot access: room upgrades, complimentary breakfast, late checkout, and property credits. The value of these additions, across a trip, routinely exceeds any planning fee several times over.</p>
+      <p>Where Innamo does charge a fee, it covers Nesse&rsquo;s time: the introductory call, the research, the itinerary, the recommendations, and everything she has learned from twenty years of visiting Italy. It is not a booking fee. It is a creative and advisory fee, for work that takes genuine expertise to do well.</p>
     </div>
 
-    <!-- HISTORY -->
-    <div class="dest-section fade-up">
-      <p class="dest-section-label">History</p>
-      <h2 class="dest-section-title">The ancient city is everywhere. Even when you are not looking.</h2>
-      <p>The Colosseum and the Forum are essential, and they bear that status without embarrassment. But some of the most affecting things in Rome are not the famous ones. In the church of San Luigi dei Francesi, near the Pantheon, there are three Caravaggio paintings lit by coin-operated lights in a side chapel. They are free to enter. The queue, most days, is short. They will stop you cold.</p>
-      <p>The Pantheon is the most perfectly preserved ancient building in the world, still in continuous use since 125 AD. It costs nothing to stand outside and look at it from the right angle, with a coffee from the bar on the square. These are the pleasures of Rome: the monumental, made ordinary, made extraordinary again.</p>
+    <!-- Section 2 -->
+    <div class="how-section fade-up">
+      <p class="how-section-label">Where it begins</p>
+      <h2 class="how-section-title">A short, complimentary call. No commitment, no pressure.</h2>
+      <p>Every Innamo journey starts the same way: a short introductory call with Nesse. Fifteen minutes, free, with no obligation on either side. It is a chance for Nesse to understand where you want to go, what kind of traveller you are, and what you are hoping to feel by the end of the trip. And for you to get a sense of whether Innamo is the right fit.</p>
+      <p>From there, Nesse will suggest the level of service that makes sense for what you have in mind, and talk through any fees that apply before anything is agreed. You will never receive a bill you were not expecting.</p>
+      <a href="https://calendly.com/innamotravel" target="_blank" rel="noopener" class="btn" style="display:inline-block;margin-top:8px;">Book an introductory call</a>
     </div>
 
-  </div>
+  </div><!-- /.how-body -->
 
-  <!-- SCENE IMAGE -->
-  <figure class="scene-img">
-    <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&crop=bottom&w=1920&q=82" alt="Roma &middot; Lazio" loading="lazy">
-    <figcaption>Roma &middot; Lazio</figcaption>
-  </figure>
+  <!-- Tier Panel -->
+  <div class="tier-panel">
+    <div class="how-body" style="padding-top:0;padding-bottom:0;">
 
-  <!-- BODY CONTINUED -->
-  <div class="dest-body">
+      <div class="tier fade-up">
+        <p class="tier-numeral">I</p>
+        <p class="tier-name">Il Percorso</p>
+        <p class="tier-subtitle">The Route</p>
+        <p>A bespoke written itinerary, built around your specific trip. Where to eat, what to see, how to spend your time, and the things worth knowing that do not appear in guidebooks. Nesse&rsquo;s personal recommendations, tailored to you.</p>
+        <p class="tier-fee">A small planning fee applies, discussed at your introductory call.</p>
+      </div>
 
-    <!-- FOOD -->
-    <div class="dest-section fade-up">
-      <p class="dest-section-label">Food &amp; Drink</p>
-      <h2 class="dest-section-title">Deceptively simple. Absolutely non-negotiable.</h2>
-      <p>Roman food is not complicated, and this is its genius. Cacio e pepe, the great pasta of the city: pecorino, black pepper, pasta water, nothing else, and almost impossible to do properly. Suppl&igrave;, the fried rice balls sold at pizzerias, eaten standing in the street. Artichokes alla giudia in the Jewish Ghetto: whole artichokes deep-fried until they open like flowers, crisp and golden on the outside, soft within.</p>
-      <p>For coffee: Prati, the neighbourhood across the river from the Vatican, is where Romans drink espresso without tourist markup. For the Aperitivo hour: anywhere that is not on the tourist drag. Rome rewards the person who walks two streets off the obvious route.</p>
+      <div class="tier-divider"></div>
+
+      <div class="tier fade-up">
+        <p class="tier-numeral">II</p>
+        <p class="tier-name">Il Soggiorno</p>
+        <p class="tier-subtitle">The Stay</p>
+        <p>Everything in Il Percorso, plus Innamo handles your hotel bookings directly. Hotel bookings are always complimentary: the property pays our commission, and you gain access to Virtuoso benefits unavailable to direct bookers.</p>
+        <p>If you already know where you want to stay and simply want the booking handled and the benefits unlocked, there is no fee at all. A planning fee applies only if you would like a full itinerary alongside the hotel booking.</p>
+        <p class="tier-fee">Hotel bookings: always complimentary. Planning fee from &pound;75, if required.</p>
+      </div>
+
+      <div class="tier-divider"></div>
+
+      <div class="tier fade-up">
+        <p class="tier-numeral">III</p>
+        <p class="tier-name">L&rsquo;Esperienza</p>
+        <p class="tier-subtitle">The Experience</p>
+        <p>The full service. Hotels, restaurants, transfers, private experiences, and a comprehensive itinerary, all arranged. You arrive, and everything is already taken care of.</p>
+        <p>A planning fee applies, reflecting the scope and complexity of the trip. Hotel commissions are already included in this model. There is no double charging.</p>
+        <p class="tier-fee">Planning fee from &pound;150, discussed and agreed before anything is confirmed.</p>
+      </div>
+
+    </div>
+  </div><!-- /.tier-panel -->
+
+  <div class="how-body">
+
+    <!-- Closing section -->
+    <div class="how-section fade-up">
+      <h2 class="how-section-title">What you are actually paying for</h2>
+      <p>Innamo is not a booking engine with a service charge. It is a person who knows Italy with real intimacy, who has spent twenty years building the relationships and the knowledge that make a trip genuinely extraordinary. The planning fee, where it applies, is for that expertise and that time.</p>
+      <p>The hotel commission, paid by the property, is the industry&rsquo;s way of saying thank you for the business. It has nothing to do with what you pay. And the Virtuoso benefits it unlocks: the upgrades, the early check-ins, the credits, the welcome amenities, are the part that most clients remember longest.</p>
     </div>
 
-    <div class="thin-rule fade-up"></div>
-
-    <!-- NEIGHBOURHOODS -->
-    <div class="dest-section fade-up">
-      <p class="dest-section-label">The City, Beyond the Obvious</p>
-      <h2 class="dest-section-title">Trastevere, Testaccio, and the Rome nobody photographs.</h2>
-      <p>Trastevere at night is Rome at its most itself: narrow streets, ivy on old walls, restaurants whose tables spill onto the cobbles. It has been discovered, but it absorbs the visitors well. Testaccio is the old working-class quarter, home to the city&rsquo;s best market and some of its most honest restaurants. Pigneto, further east, is where Romans actually go out now.</p>
-      <p>Nesse knows which streets, which restaurants, and which version of Rome to point you toward. This is not about the checklist. It is about the city that stays with you.</p>
-    </div>
-
-  </div>
-
+  </div><!-- /.how-body -->
 
   <!-- CTA -->
   <div class="dest-cta fade-up">
-    <p class="dest-cta-title">Tell us you want Rome.<br>We&rsquo;ll take it from there.</p>
-    <p class="dest-cta-sub">Bespoke itineraries &middot; Personal recommendations &middot; Everything arranged</p>
-    <a href="/#enquire" class="btn">Enquire about Rome</a>
+    <p class="dest-cta-title">Ready to start planning?</p>
+    <p class="dest-cta-sub">Begin with a short introductory call. Free, informal, and no commitment.</p>
+    <a href="https://calendly.com/innamotravel" target="_blank" rel="noopener" class="btn">Book a call with Nesse</a>
   </div>
 
   <footer>
@@ -338,6 +444,7 @@
 
     <div class="foot-links">
       <a href="#">
+        <!-- Instagram -->
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07
             3.252.148 4.771 1.691 4.919 4.919
@@ -379,6 +486,7 @@
       </a>
 
       <a href="mailto:hello@innamo.travel">
+        <!-- Envelope icon -->
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9
             2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
