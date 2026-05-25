@@ -35,6 +35,14 @@
     {
       "source": "/how-we-work",
       "destination": "/how-we-work.html"
+    },
+    {
+      "source": "/tuscan-countryside",
+      "destination": "/tuscany.html"
+    },
+    {
+      "source": "/como",
+      "destination": "/como.html"
     }
   ]
 }
