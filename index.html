@@ -372,7 +372,7 @@
 
     .dest-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 10px;
       max-width: 1440px;
       margin: 0 auto;
@@ -985,15 +985,15 @@
   ════════════════════════════════════ -->
   <section id="destinations">
     <h2 class="section-title fade-up">Where We Take You</h2>
-    <p class="section-sub fade-up d1">While we specialise in the destinations below, there is no part of Italy we won&rsquo;t be delighted to help you fall in love with.</p>
+    <p class="section-sub fade-up d1">From Italy&rsquo;s great art cities to the wild coves of Sardinia and the sun-drenched baroque of Sicily &mdash; and everywhere in between. There is no part of Italy we won&rsquo;t be delighted to help you fall in love with.</p>
 
     <div class="dest-grid">
 
       <a href="/florence" class="dest-item fade-up">
         <img src="https://images.unsplash.com/photo-1651493635137-7b36b0fee9cb?auto=format&fit=crop&w=800&q=80"
-             alt="Florence" loading="lazy">
+             alt="Florence and Tuscany" loading="lazy">
         <div class="dest-veil"></div>
-        <div class="dest-label"><strong>Florence</strong><span>Firenze</span></div>
+        <div class="dest-label"><strong>Florence &amp; Tuscany</strong><span>Firenze &amp; Toscana</span></div>
       </a>
 
       <a href="/rome" class="dest-item fade-up d1">
@@ -1010,18 +1010,11 @@
         <div class="dest-label"><strong>Venice</strong><span>Venezia</span></div>
       </a>
 
-      <a href="/siena" class="dest-item fade-up d3">
+      <a href="/siena" class="dest-item fade-up">
         <img src="https://images.unsplash.com/photo-1660814534413-156ba2220c4a?auto=format&fit=crop&w=800&q=80"
              alt="Siena" loading="lazy">
         <div class="dest-veil"></div>
         <div class="dest-label"><strong>Siena</strong><span>Toscana</span></div>
-      </a>
-
-      <a href="/tuscan-countryside" class="dest-item fade-up">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80"
-             alt="Tuscan Countryside" loading="lazy">
-        <div class="dest-veil"></div>
-        <div class="dest-label"><strong>Tuscan Countryside</strong><span>Toscana</span></div>
       </a>
 
       <a href="/cinque-terre" class="dest-item fade-up d1">
@@ -1038,11 +1031,25 @@
         <div class="dest-label"><strong>Amalfi Coast &amp; Capri</strong><span>Campania</span></div>
       </a>
 
-      <a href="/como" class="dest-item fade-up d3">
+      <a href="/como" class="dest-item fade-up">
         <img src="https://images.unsplash.com/photo-1606745463199-d7623eee5f8a?auto=format&fit=crop&w=800&q=80"
              alt="Lake Como and the Italian Lakes" loading="lazy">
         <div class="dest-veil"></div>
         <div class="dest-label"><strong>Lake Como &amp; the Italian Lakes</strong><span>Lombardia</span></div>
+      </a>
+
+      <a href="/sardinia" class="dest-item fade-up d1">
+        <img src="https://images.unsplash.com/photo-1558508006-b47365cf0e61?auto=format&fit=crop&w=800&q=80"
+             alt="Sardinia" loading="lazy">
+        <div class="dest-veil"></div>
+        <div class="dest-label"><strong>Sardinia</strong><span>Sardegna</span></div>
+      </a>
+
+      <a href="/sicily" class="dest-item fade-up d2">
+        <img src="https://images.unsplash.com/photo-1523365154888-8a758819b722?auto=format&fit=crop&w=800&q=80"
+             alt="Sicily" loading="lazy">
+        <div class="dest-veil"></div>
+        <div class="dest-label"><strong>Sicily</strong><span>Sicilia</span></div>
       </a>
 
     </div>
@@ -1249,14 +1256,15 @@
             <label for="f-dest">Destination</label>
             <select id="f-dest" name="destination">
               <option value="" disabled selected>Select a destination</option>
-              <option>Florence</option>
+              <option>Florence &amp; Tuscany</option>
               <option>Rome</option>
               <option>Venice</option>
               <option>Siena</option>
-              <option>Tuscan Countryside</option>
               <option>Cinque Terre &amp; Portofino</option>
               <option>Amalfi Coast &amp; Capri</option>
               <option>Lake Como &amp; the Italian Lakes</option>
+              <option>Sardinia</option>
+              <option>Sicily</option>
             </select>
           </div>
         </div>
