@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Villa Options — Innamo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream:       #F5EFE0;
+      --cream-mid:   #EDE4CC;
+      --terracotta:  #C4622D;
+      --terra-dark:  #A8521F;
+      --espresso:    #2C1810;
+      --sage:        #8B9D77;
+      --font-logo:   'Cormorant Garamond', Georgia, serif;
+      --font-d:      'Cormorant Garamond', Georgia, serif;
+      --font-b:      'EB Garamond', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--espresso); font-family: var(--font-b); }
+
+    /* NAV */
+    #nav {
+      position: relative; z-index: 100;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px 48px;
+      background: var(--espresso);
+    }
+    .nav-logo { display: block; }
+
+    /* GATE */
+    #gate {
+      position: fixed; inset: 0; z-index: 1000;
+      background: var(--espresso);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    #gate.hidden { display: none; }
+    .gate-card {
+      max-width: 380px; width: 100%; text-align: center;
+    }
+    .gate-card img { height: 26px; width: auto; margin-bottom: 28px; }
+    .gate-title {
+      font-family: var(--font-d); font-size: 1.5rem; font-style: italic;
+      color: var(--cream); margin-bottom: 10px;
+    }
+    .gate-sub {
+      font-family: var(--font-b); font-size: 0.85rem; color: rgba(245,239,224,0.55);
+      margin-bottom: 32px; line-height: 1.6;
+    }
+    .gate-input {
+      width: 100%; padding: 14px 16px; font-family: var(--font-b); font-size: 0.95rem;
+      background: rgba(245,239,224,0.08); border: 1px solid rgba(245,239,224,0.25);
+      color: var(--cream); margin-bottom: 16px; text-align: center; letter-spacing: 0.05em;
+    }
+    .gate-input::placeholder { color: rgba(245,239,224,0.35); }
+    .gate-input:focus { outline: none; border-color: var(--terracotta); }
+    .gate-btn {
+      width: 100%; padding: 14px; font-family: var(--font-b); font-size: 0.72rem;
+      letter-spacing: 0.22em; text-transform: uppercase; cursor: pointer;
+      background: var(--terracotta); color: var(--cream); border: none;
+      transition: background 0.2s;
+    }
+    .gate-btn:hover { background: var(--terra-dark); }
+    .gate-error {
+      font-family: var(--font-b); font-size: 0.8rem; color: var(--terracotta);
+      margin-top: 14px; display: none;
+    }
+    .gate-error.show { display: block; }
+
+    #site { display: none; }
+    #site.visible { display: block; }
+
+    /* INTRO */
+    .intro {
+      max-width: 700px; margin: 0 auto; text-align: center;
+      padding: 80px 40px 40px;
+    }
+    .intro-eyebrow {
+      font-family: var(--font-b); font-size: 0.7rem; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--terracotta); margin-bottom: 18px;
+    }
+    .intro-title {
+      font-family: var(--font-d); font-size: clamp(2.2rem, 5vw, 3rem);
+      font-style: italic; font-weight: 400; margin-bottom: 20px;
+    }
+    .intro p {
+      font-family: var(--font-b); font-size: 1.05rem; line-height: 1.8;
+      color: rgba(44,24,16,0.75);
+    }
+
+    /* VILLA SECTION */
+    .villa-section { padding: 40px 0 96px; }
+    .villa-section:nth-child(even) { background: var(--cream-mid); }
+    .villa-header { max-width: 740px; margin: 0 auto; padding: 0 40px 40px; text-align: center; }
+    .villa-eyebrow {
+      font-family: var(--font-b); font-size: 0.68rem; letter-spacing: 0.26em;
+      text-transform: uppercase; color: var(--terracotta); margin-bottom: 14px;
+    }
+    .villa-title {
+      font-family: var(--font-d); font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-style: italic; font-weight: 400; line-height: 1.2;
+    }
+
+    /* CAROUSEL */
+    .carousel {
+      position: relative; max-width: 900px; margin: 0 auto 48px;
+      overflow: hidden; background: var(--espresso);
+    }
+    .carousel-track {
+      display: flex; transition: transform 0.45s ease;
+    }
+    .carousel-track img {
+      width: 100%; flex: 0 0 100%;
+      height: 58vh; min-height: 340px; max-height: 560px;
+      object-fit: cover; display: block;
+    }
+    .carousel-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 42px; height: 42px; border-radius: 50%; border: none; cursor: pointer;
+      background: rgba(245,239,224,0.85); color: var(--espresso);
+      font-family: var(--font-d); font-size: 1.3rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .carousel-arrow:hover { background: var(--cream); }
+    .carousel-arrow.prev { left: 16px; }
+    .carousel-arrow.next { right: 16px; }
+    .carousel-dots {
+      position: absolute; bottom: 16px; left: 0; right: 0;
+      display: flex; justify-content: center; gap: 8px;
+    }
+    .carousel-dot {
+      width: 7px; height: 7px; border-radius: 50%; border: none; cursor: pointer;
+      background: rgba(245,239,224,0.4); padding: 0; transition: background 0.2s;
+    }
+    .carousel-dot.active { background: var(--cream); }
+    .carousel-count {
+      position: absolute; top: 16px; right: 16px;
+      font-family: var(--font-b); font-size: 0.7rem; letter-spacing: 0.1em;
+      color: rgba(245,239,224,0.85); background: rgba(44,24,16,0.4);
+      padding: 4px 10px;
+    }
+
+    /* DETAILS */
+    .villa-details { max-width: 700px; margin: 0 auto; padding: 0 40px; }
+    .detail-block { margin-bottom: 40px; }
+    .detail-block:last-child { margin-bottom: 0; }
+    .detail-label {
+      font-family: var(--font-b); font-size: 0.68rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--terracotta); margin-bottom: 12px;
+    }
+    .detail-block p {
+      font-family: var(--font-b); font-size: 1.03rem; line-height: 1.8;
+      color: rgba(44,24,16,0.82); margin-bottom: 14px;
+    }
+    .detail-block p:last-child { margin-bottom: 0; }
+
+    /* FOOTER */
+    footer {
+      background: var(--espresso); text-align: center;
+      padding: 56px 40px 40px;
+    }
+    .foot-logo {
+      font-family: var(--font-logo); font-size: 1.4rem; letter-spacing: 0.2em;
+      color: var(--cream); margin-bottom: 12px;
+    }
+    .foot-copy {
+      font-family: var(--font-b); font-size: 0.75rem; letter-spacing: 0.05em;
+      color: rgba(245,239,224,0.45);
+    }
+    .foot-copy a { color: var(--terracotta); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .intro { padding: 56px 24px 32px; }
+      .villa-header, .villa-details { padding-left: 24px; padding-right: 24px; }
+      .carousel { margin-left: 12px; margin-right: 12px; max-width: calc(100% - 24px); }
+      .carousel-arrow { width: 36px; height: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PASSWORD GATE -->
+  <div id="gate">
+    <div class="gate-card">
+      <img src="/innamo-logo-cream.png" alt="Innamo">
+      <p class="gate-title">A private page for Merilee</p>
+      <p class="gate-sub">Two villas, put together just for your group.<br>Enter the password to take a look.</p>
+      <input type="password" id="gate-password" class="gate-input" placeholder="Password" autocomplete="off">
+      <button class="gate-btn" id="gate-submit">Enter</button>
+      <p class="gate-error" id="gate-error">That's not quite right — try again.</p>
+    </div>
+  </div>
+
+  <!-- SITE -->
+  <div id="site">
+
+    <nav id="nav">
+      <a href="/" class="nav-logo"><img src="/innamo-logo-nav.png" alt="Innamo" style="height:22px;width:auto;display:block;"></a>
+    </nav>
+
+    <div class="intro">
+      <p class="intro-eyebrow">Prepared exclusively for Merilee</p>
+      <h1 class="intro-title">Two villas near Glastonbury&rsquo;s Tuscan cousin</h1>
+      <p>We've pulled together the two properties that feel right for your group — both set in the same golden stretch of Tuscan countryside between Siena and Florence. Have a look through, and let us know which one speaks to you (or if you'd like to see more).</p>
+    </div>
+
+    <!-- VILLA 1 -->
+    <section class="villa-section">
+      <div class="villa-header">
+        <p class="villa-eyebrow">Option One &middot; Poggibonsi</p>
+        <h2 class="villa-title">The Wine Estate</h2>
+      </div>
+
+      <div class="carousel" id="carousel-1">
+        <div class="carousel-track" id="track-1"></div>
+        <button class="carousel-arrow prev" onclick="moveCarousel(1,-1)">&#8249;</button>
+        <button class="carousel-arrow next" onclick="moveCarousel(1,1)">&#8250;</button>
+        <div class="carousel-dots" id="dots-1"></div>
+        <div class="carousel-count" id="count-1"></div>
+      </div>
+
+      <div class="villa-details">
+        <div class="detail-block">
+          <p class="detail-label">The Estate</p>
+          <p>A private wine estate in the Tuscan countryside, offered for your group's exclusive use — every villa, garden and gathering space on the property is yours alone, with nothing shared. The estate is made up of five individual apartments, each with its own entrance and outdoor space, so everyone has a corner to call their own while still gathering easily for meals, wine and long afternoons by the pool.</p>
+          <p>Fully equipped kitchens throughout mean you can cook as much or as little as you like, and the outdoor spaces are made for the in-between moments — morning coffee, sunset aperitivo, dinner under the stars.</p>
+        </div>
+        <div class="detail-block">
+          <p class="detail-label">On the Property</p>
+          <p>A private pool, a barbecue area, and a traditional brick pizza oven for evenings that turn into something more festive. For quieter moments, there are bicycles, bocce, table tennis, and a hammock with views rolling out over the vineyards — the estate sits right in the middle of the Montalpruno vines, and harvest season here is something to see.</p>
+        </div>
+        <div class="detail-block">
+          <p class="detail-label">Location</p>
+          <p>Ten minutes from Poggibonsi, with its restaurants, markets and everyday Tuscan life. The Chianti Classico wine region is just beyond that, San Gimignano's medieval towers are twenty minutes away, and Siena and Florence are both under forty-five. Complimentary parking on site; Florence airport is under an hour's drive.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VILLA 2 -->
+    <section class="villa-section">
+      <div class="villa-header">
+        <p class="villa-eyebrow">Option Two &middot; Poggibonsi</p>
+        <h2 class="villa-title">The Manor House</h2>
+      </div>
+
+      <div class="carousel" id="carousel-2">
+        <div class="carousel-track" id="track-2"></div>
+        <button class="carousel-arrow prev" onclick="moveCarousel(2,-1)">&#8249;</button>
+        <button class="carousel-arrow next" onclick="moveCarousel(2,1)">&#8250;</button>
+        <div class="carousel-dots" id="dots-2"></div>
+        <div class="carousel-count" id="count-2"></div>
+      </div>
+
+      <div class="villa-details">
+        <div class="detail-block">
+          <p class="detail-label">The House</p>
+          <p>An authentic Tuscan manor house, furnished in the old style and entirely at your disposal — the kind of place where you feel the shift the moment you walk through the gate. Spread across two floors, it holds a grand entrance hall, a dining room built for long meals, a proper Tuscan kitchen with an open fireplace, and a bright, generous living room with a real football table for anyone who fancies it. Upstairs, four double bedrooms and three bathrooms.</p>
+        </div>
+        <div class="detail-block">
+          <p class="detail-label">The Garden</p>
+          <p>Hidden behind a thick green hedge: an equipped pool (5 x 12m), sun loungers, a gazebo for breakfast, and a separate table made for long outdoor dinners. Lavender and roses line the lawn, and there's a barbecue and table tennis for anyone restless after dinner. Free WiFi and laundry throughout, and covered parking just off the garden.</p>
+        </div>
+        <div class="detail-block">
+          <p class="detail-label">Location</p>
+          <p>Barely two kilometres from Poggibonsi, reachable on foot along a quiet riverside path in about ten minutes — restaurants, cafés, shops and the train station are all there waiting. San Gimignano is ten kilometres away, and the Florence–Siena motorway is minutes from the gate, putting all of Tuscany comfortably within reach.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="foot-logo">Innamo</div>
+      <p class="foot-copy">Any questions at all, just reply or email <a href="mailto:innamotravel@gmail.com">innamotravel@gmail.com</a></p>
+    </footer>
+
+  </div>
+
+  <script>
+    /* ── Password gate ─────────────────── */
+    const PASSWORD = 'Merilee2027';
+    const gate = document.getElementById('gate');
+    const site = document.getElementById('site');
+    const input = document.getElementById('gate-password');
+    const error = document.getElementById('gate-error');
+
+    function tryUnlock() {
+      if (input.value === PASSWORD) {
+        sessionStorage.setItem('merilee-unlocked', '1');
+        gate.classList.add('hidden');
+        site.classList.add('visible');
+      } else {
+        error.classList.add('show');
+      }
+    }
+    document.getElementById('gate-submit').addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') tryUnlock(); });
+
+    if (sessionStorage.getItem('merilee-unlocked') === '1') {
+      gate.classList.add('hidden');
+      site.classList.add('visible');
+    }
+
+    /* ── Carousels ─────────────────── */
+    const galleries = {
+      1: ['approach.jpg','grounds.jpg','Grounds_2.jpg','Pool.jpg','OUT_DOWN.jpg','OUT_DINE.jpg','PIZZA_oven.jpg','Kitchen.jpg','BR_1.avif','BR2.jpg','BR_3.jpg','BR_4.jpg','BR_5.jpg','BR_6.jpg','BR_7.jpg','Bath_1.jpg','Bath_2.avif'].map(f => '/merilee-photos/villa-1/' + f),
+      2: ['entry.jpeg','Grounds.jpg','Pool.jpg','terazza.jpeg','Dine_Fuori.jpeg','living.jpeg','dining.jpg','kitchen.jpeg','BR_1.jpg','BR_2.avif','BR_3.jpeg','BR_5.jpeg','BR_6.avif','BR_7.jpg','BR_8.avif','Bath_1.avif','Bath_2.jpg'].map(f => '/merilee-photos/villa-2/' + f)
+    };
+
+    const state = { 1: 0, 2: 0 };
+
+    function buildCarousel(id) {
+      const track = document.getElementById('track-' + id);
+      const dots = document.getElementById('dots-' + id);
+      const count = document.getElementById('count-' + id);
+      galleries[id].forEach((src, i) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.loading = 'lazy';
+        img.alt = 'Villa photo ' + (i + 1);
+        track.appendChild(img);
+
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goToSlide(id, i));
+        dots.appendChild(dot);
+      });
+      count.textContent = '1 / ' + galleries[id].length;
+    }
+
+    function goToSlide(id, index) {
+      const total = galleries[id].length;
+      state[id] = (index + total) % total;
+      const track = document.getElementById('track-' + id);
+      track.style.transform = 'translateX(-' + (state[id] * 100) + '%)';
+      document.querySelectorAll('#dots-' + id + ' .carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === state[id]);
+      });
+      document.getElementById('count-' + id).textContent = (state[id] + 1) + ' / ' + total;
+    }
+
+    function moveCarousel(id, dir) {
+      goToSlide(id, state[id] + dir);
+    }
+
+    buildCarousel(1);
+    buildCarousel(2);
+  </script>
+
+</body>
+</html>

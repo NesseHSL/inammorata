@@ -43,6 +43,10 @@
     {
       "source": "/como",
       "destination": "/como.html"
+    },
+    {
+      "source": "/merilee",
+      "destination": "/merilee.html"
     }
   ]
 }
