@@ -106,18 +106,25 @@
     /* GALLERY — asymmetric editorial grid */
     .villa-gallery {
       display: grid; grid-template-columns: repeat(12, 1fr);
-      gap: 22px; max-width: 1180px; margin: 40px auto 100px; padding: 0 40px;
+      gap: 26px 22px; max-width: 1180px; margin: 40px auto 100px; padding: 0 40px;
     }
-    .vg-item { overflow: hidden; background: var(--cream-mid); }
+    .vg-item { display: flex; flex-direction: column; }
+    .vg-thumb { overflow: hidden; background: var(--cream-mid); }
     .vg-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 5s ease; }
     .vg-item:hover img { transform: scale(1.06); }
-    .vg-1 { grid-column: 1 / span 7; height: 480px; }
-    .vg-2 { grid-column: 8 / span 5; height: 220px; margin-top: 70px; }
-    .vg-3 { grid-column: 8 / span 5; height: 190px; }
-    .vg-4 { grid-column: 1 / span 4; height: 260px; margin-top: 30px; }
-    .vg-5 { grid-column: 5 / span 8; height: 340px; }
-    .vg-6 { grid-column: 1 / span 5; height: 300px; }
-    .vg-7 { grid-column: 6 / span 7; height: 240px; margin-top: 50px; }
+    .vg-caption {
+      margin-top: 12px; font-family: var(--font-b); font-size: 0.68rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(44,24,16,0.5);
+    }
+    .vg-1 { grid-column: 1 / span 7; } .vg-1 .vg-thumb { height: 420px; }
+    .vg-2 { grid-column: 8 / span 5; margin-top: 70px; } .vg-2 .vg-thumb { height: 200px; }
+    .vg-3 { grid-column: 8 / span 5; } .vg-3 .vg-thumb { height: 170px; }
+    .vg-4 { grid-column: 1 / span 4; } .vg-4 .vg-thumb { height: 240px; }
+    .vg-5 { grid-column: 5 / span 4; } .vg-5 .vg-thumb { height: 240px; }
+    .vg-6 { grid-column: 9 / span 4; } .vg-6 .vg-thumb { height: 240px; }
+    .vg-7 { grid-column: 1 / span 6; margin-top: 20px; } .vg-7 .vg-thumb { height: 320px; }
+    .vg-8 { grid-column: 7 / span 6; margin-top: 20px; } .vg-8 .vg-thumb { height: 320px; }
+    .vg-9 { grid-column: 1 / span 12; } .vg-9 .vg-thumb { height: 380px; }
 
     /* ROOMS PANEL */
     .rooms-panel { background: var(--espresso); color: var(--cream); padding: 72px 40px; }
@@ -171,13 +178,15 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .villa-gallery { grid-template-columns: repeat(6, 1fr); }
-      .vg-1 { grid-column: 1 / span 6; height: 340px; }
-      .vg-2 { grid-column: 1 / span 3; height: 200px; margin-top: 0; }
-      .vg-3 { grid-column: 4 / span 3; height: 200px; }
-      .vg-4 { grid-column: 1 / span 3; height: 220px; margin-top: 0; }
-      .vg-5 { grid-column: 4 / span 3; height: 220px; }
-      .vg-6 { grid-column: 1 / span 3; height: 220px; }
-      .vg-7 { grid-column: 4 / span 3; height: 220px; margin-top: 0; }
+      .vg-1 { grid-column: 1 / span 6; margin-top: 0; } .vg-1 .vg-thumb { height: 300px; }
+      .vg-2 { grid-column: 1 / span 3; margin-top: 0; } .vg-2 .vg-thumb { height: 200px; }
+      .vg-3 { grid-column: 4 / span 3; margin-top: 0; } .vg-3 .vg-thumb { height: 200px; }
+      .vg-4 { grid-column: 1 / span 3; } .vg-4 .vg-thumb { height: 200px; }
+      .vg-5 { grid-column: 4 / span 3; } .vg-5 .vg-thumb { height: 200px; }
+      .vg-6 { grid-column: 1 / span 3; } .vg-6 .vg-thumb { height: 200px; }
+      .vg-7 { grid-column: 4 / span 3; margin-top: 0; } .vg-7 .vg-thumb { height: 200px; }
+      .vg-8 { grid-column: 1 / span 6; margin-top: 0; } .vg-8 .vg-thumb { height: 280px; }
+      .vg-9 { grid-column: 1 / span 6; } .vg-9 .vg-thumb { height: 300px; }
     }
     @media (max-width: 768px) {
       #nav { padding: 22px 28px; }
@@ -226,13 +235,42 @@
 
   <!-- GALLERY -->
   <div class="villa-gallery">
-    <div class="vg-item vg-1 fade-up"><img src="/retreat-gallery-grounds.jpg" alt="Villa Cecconi grounds, aerial view"></div>
-    <div class="vg-item vg-2 fade-up d1"><img src="/retreat-gallery-pool.jpg" alt="Villa Cecconi pool"></div>
-    <div class="vg-item vg-3 fade-up d2"><img src="/retreat-villa-card.jpg" alt="Villa Cecconi archway"></div>
-    <div class="vg-item vg-4 fade-up"><img src="/retreat-gallery-breakfast.jpg" alt="Breakfast room"></div>
-    <div class="vg-item vg-5 fade-up d1"><img src="/retreat-gallery-terrace.jpg" alt="Outdoor terrace and dining"></div>
-    <div class="vg-item vg-6 fade-up"><img src="/retreat-gallery-dining.jpg" alt="Main dining room"></div>
-    <div class="vg-item vg-7 fade-up d2"><img src="/retreat-gallery-outdoor.jpg" alt="Outdoor dining at sunset"></div>
+    <div class="vg-item vg-1 fade-up">
+      <div class="vg-thumb"><img src="/retreat-gallery-grounds.jpg" alt="Villa Cecconi grounds, aerial view"></div>
+      <p class="vg-caption">The Grounds, From Above</p>
+    </div>
+    <div class="vg-item vg-2 fade-up d1">
+      <div class="vg-thumb"><img src="/retreat-gallery-pool.jpg" alt="Villa Cecconi pool"></div>
+      <p class="vg-caption">The Pool</p>
+    </div>
+    <div class="vg-item vg-3 fade-up d2">
+      <div class="vg-thumb"><img src="/retreat-villa-card.jpg" alt="Villa Cecconi archway"></div>
+      <p class="vg-caption">The Watchtower</p>
+    </div>
+    <div class="vg-item vg-4 fade-up">
+      <div class="vg-thumb"><img src="/retreat-gallery-bedroom1.jpg" alt="Bedroom with gold canopy"></div>
+      <p class="vg-caption">Bedroom, Ground Floor</p>
+    </div>
+    <div class="vg-item vg-5 fade-up d1">
+      <div class="vg-thumb"><img src="/retreat-gallery-bedroom2.jpg" alt="Bedroom with sage canopy"></div>
+      <p class="vg-caption">Bedroom, First Floor</p>
+    </div>
+    <div class="vg-item vg-6 fade-up d2">
+      <div class="vg-thumb"><img src="/retreat-gallery-bedroom3.jpg" alt="Bedroom with exposed stone wall"></div>
+      <p class="vg-caption">Bedroom, Under the Eaves</p>
+    </div>
+    <div class="vg-item vg-7 fade-up">
+      <div class="vg-thumb"><img src="/retreat-gallery-bathroom.jpg" alt="Villa Cecconi bathroom"></div>
+      <p class="vg-caption">The Bathroom</p>
+    </div>
+    <div class="vg-item vg-8 fade-up d1">
+      <div class="vg-thumb"><img src="/retreat-gallery-terrace.jpg" alt="Outdoor terrace and dining"></div>
+      <p class="vg-caption">The Terrace</p>
+    </div>
+    <div class="vg-item vg-9 fade-up d2">
+      <div class="vg-thumb"><img src="/retreat-gallery-outdoor.jpg" alt="Outdoor dining at sunset"></div>
+      <p class="vg-caption">Dinner, Al Fresco</p>
+    </div>
   </div>
 
   <!-- ROOMS -->
