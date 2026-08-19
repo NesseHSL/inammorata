@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Investment — Wine &amp; Wellness Retreat — Innamo</title>
-  <meta name="description" content="Pricing, what's included, and how to secure your place at the Wine &amp; Wellness Retreat, in partnership with HerSpace London.">
+  <title>Terms &amp; Conditions — Wine &amp; Wellness Retreat — Innamo</title>
+  <meta name="description" content="Terms and conditions for the Wine & Wellness Retreat, retreat services provided by Innamo Travel, in partnership with HerSpace London.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,128 +36,51 @@
     body { background: var(--cream); color: var(--espresso); font-family: var(--font-b); }
 
     #nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: relative; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 28px 48px;
-      background: linear-gradient(to bottom, rgba(44,24,16,0.55) 0%, transparent 100%);
-      transition: background 0.4s, padding 0.4s;
+      padding: 28px 48px; background: var(--espresso);
     }
-    #nav.scrolled { background: rgba(44,24,16,0.92); padding: 18px 48px; }
     .nav-logo { font-family: var(--font-logo); font-size: 1.35rem; letter-spacing: 0.18em; color: var(--cream); text-decoration: none; }
     .nav-links { list-style: none; display: flex; gap: 40px; }
     .nav-links a {
       font-family: var(--font-b); font-size: 0.78rem; letter-spacing: 0.2em;
       text-transform: uppercase; color: rgba(245,239,224,0.82); text-decoration: none;
-      transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--cream); }
 
-    /* HERO (photo) */
-    .sp-hero { position: relative; width: 100%; height: 78vh; min-height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
-    .sp-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; z-index: 0; }
-    .sp-hero-veil {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(44,24,16,0.85) 0%, rgba(44,24,16,0.28) 55%, rgba(44,24,16,0.12) 100%);
-      z-index: 1;
+    .terms-header { background: var(--espresso); color: var(--cream); text-align: center; padding: 64px 40px 72px; }
+    .terms-eyebrow { font-family: var(--font-b); font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 16px; }
+    .terms-h1 { font-family: var(--font-d); font-style: italic; font-weight: 400; font-size: clamp(2rem, 4.5vw, 3rem); }
+
+    .notice-box {
+      max-width: 760px; margin: -40px auto 0; padding: 32px 40px; background: var(--cream-mid);
+      border-left: 3px solid var(--terracotta); position: relative; z-index: 2;
     }
-    .sp-hero-text { position: relative; z-index: 2; padding: 0 72px 88px; }
-    .sp-hero-eyebrow { font-family: var(--font-b); font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 16px; }
-    .sp-hero-title {
-      font-family: var(--font-logo); font-size: clamp(3.5rem, 8vw, 7rem);
-      font-weight: 400; color: var(--cream); line-height: 1; letter-spacing: 0.08em; margin-bottom: 10px;
+    .notice-box p { font-family: var(--font-b); font-size: 0.95rem; line-height: 1.75; color: rgba(44,24,16,0.8); }
+
+    .terms-body { max-width: 760px; margin: 0 auto; padding: 72px 40px 100px; }
+    .terms-body h2 {
+      font-family: var(--font-d); font-style: italic; font-weight: 500; font-size: 1.3rem;
+      color: var(--terracotta); margin: 48px 0 16px;
     }
-    .sp-hero-sub { font-family: var(--font-d); font-size: clamp(1.1rem, 2vw, 1.5rem); font-style: italic; font-weight: 300; color: rgba(245,239,224,0.78); }
-
-    /* PRICING CARDS */
-    .price-section { max-width: 900px; margin: 0 auto; padding: 96px 40px 40px; }
-    .sp-eyebrow { font-family: var(--font-b); font-size: 0.68rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 20px; text-align: center; }
-    .sp-title { font-family: var(--font-d); font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 400; font-style: italic; line-height: 1.25; color: var(--espresso); margin-bottom: 56px; text-align: center; }
-    .price-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 20px; }
-    .price-card { background: var(--cream-mid); padding: 44px 36px; text-align: center; }
-    .price-card-label { font-family: var(--font-b); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(44,24,16,0.55); margin-bottom: 18px; }
-    .price-card-amount { font-family: var(--font-logo); font-size: clamp(2.4rem, 5vw, 3.2rem); color: var(--terracotta); line-height: 1; margin-bottom: 8px; }
-    .price-card-note { font-family: var(--font-b); font-size: 0.88rem; color: rgba(44,24,16,0.55); }
-    .deposit-note { text-align: center; font-family: var(--font-b); font-size: 0.85rem; letter-spacing: 0.08em; color: rgba(44,24,16,0.55); margin: 28px 0 80px; }
-    .deposit-note strong { color: var(--espresso); }
-
-    /* INCLUDED / NOT INCLUDED */
-    .incl-section { max-width: 780px; margin: 0 auto; padding: 0 40px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-    .incl-col-title { font-family: var(--font-d); font-style: italic; font-size: 1.3rem; margin-bottom: 20px; color: var(--espresso); }
-    .incl-col ul { list-style: none; }
-    .incl-col li {
-      font-family: var(--font-b); font-size: 0.98rem; line-height: 1.6; color: rgba(44,24,16,0.8);
-      padding-left: 22px; position: relative; margin-bottom: 12px;
-    }
-    .incl-col.yes li::before { content: '+'; position: absolute; left: 0; color: var(--sage); font-weight: 600; }
-    .incl-col.no li::before { content: '–'; position: absolute; left: 0; color: rgba(44,24,16,0.35); font-weight: 600; }
-    .incl-col.no li { color: rgba(44,24,16,0.5); }
-
-    /* TRANSFER NOTE */
-    .transfer-note { background: var(--cream-mid); padding: 48px 40px; text-align: center; margin-bottom: 0; }
-    .transfer-note p { max-width: 600px; margin: 0 auto; font-family: var(--font-b); font-size: 0.95rem; line-height: 1.7; color: rgba(44,24,16,0.7); }
-
-    /* SCENE IMAGE */
-    .scene-img { width: 100%; overflow: hidden; margin: 0; }
-    .scene-img img { width: 100%; height: 48vh; min-height: 280px; object-fit: cover; object-position: center; display: block; }
-
-    /* REGISTER FORM */
-    .register-section { max-width: 640px; margin: 0 auto; padding: 0 40px 100px; }
-    .register-head { text-align: center; margin-bottom: 44px; }
-    .reg-row { display: flex; gap: 20px; margin-bottom: 20px; }
-    .reg-group { flex: 1; display: flex; flex-direction: column; gap: 8px; }
-    .reg-group label { font-family: var(--font-b); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(44,24,16,0.55); }
-    .reg-group input, .reg-group select, .reg-group textarea {
-      font-family: var(--font-b); font-size: 0.95rem; padding: 14px 16px;
-      border: 1px solid rgba(44,24,16,0.2); background: var(--cream-mid); color: var(--espresso);
-      outline: none; transition: border-color 0.2s;
-    }
-    .reg-group input:focus, .reg-group select:focus, .reg-group textarea:focus { border-color: var(--terracotta); }
-    .reg-group textarea { resize: vertical; min-height: 90px; font-family: var(--font-b); }
-    .reg-submit { text-align: center; margin-top: 8px; }
-    .reg-submit .btn { border: none; cursor: pointer; font-size: 0.72rem; }
-    .reg-note { font-family: var(--font-b); font-size: 0.72rem; color: rgba(44,24,16,0.45); text-align: center; margin-top: 14px; }
-    #reg-success, #reg-error { display: none; text-align: center; padding: 20px 0 0; }
-    #reg-success p { font-family: var(--font-d); font-size: 1.1rem; font-style: italic; color: var(--espresso); }
-    #reg-error p { font-family: var(--font-b); font-size: 0.9rem; color: rgba(44,24,16,0.7); }
-    @media (max-width: 600px) { .reg-row { flex-direction: column; gap: 20px; } }
-
-    /* FINAL CTA */
-    .final-cta { background: var(--espresso); color: var(--cream); text-align: center; padding: 100px 40px; }
-    .final-cta-eyebrow { font-family: var(--font-b); font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(196,98,45,0.9); margin-bottom: 22px; }
-    .final-cta-title { font-family: var(--font-d); font-style: italic; font-weight: 400; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.25; color: var(--cream); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
-    .final-btns { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; font-family: var(--font-b); font-size: 0.72rem; letter-spacing: 0.22em;
-      text-transform: uppercase; text-decoration: none; color: var(--cream); background: var(--terracotta);
-      padding: 18px 44px; border: 1px solid var(--terracotta); cursor: pointer; transition: background 0.25s, color 0.25s;
-    }
-    .btn:hover { background: var(--terra-dark); }
-    .btn-ghost { background: transparent; border: 1px solid rgba(245,239,224,0.4); color: var(--cream); }
-    .btn-ghost:hover { background: rgba(245,239,224,0.1); }
+    .terms-body h2:first-child { margin-top: 0; }
+    .terms-body p { font-family: var(--font-b); font-size: 0.98rem; line-height: 1.8; color: rgba(44,24,16,0.82); margin-bottom: 14px; }
+    .terms-body p:last-child { margin-bottom: 0; }
+    .terms-body strong { color: var(--espresso); }
+    .table-note { background: var(--cream-mid); padding: 20px 24px; margin: 14px 0; }
+    .table-note p { margin-bottom: 6px; }
+    .table-note p:last-child { margin-bottom: 0; }
 
     footer { background: var(--espresso); text-align: center; padding: 56px 40px 48px; border-top: 1px solid rgba(245,239,224,0.08); }
     .foot-logo { font-family: var(--font-logo); font-size: 1.6rem; letter-spacing: 0.2em; color: var(--cream); margin-bottom: 10px; }
     .foot-strap { font-family: var(--font-b); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,239,224,0.35); margin-bottom: 40px; }
-    .foot-links { display: flex; justify-content: center; gap: 36px; margin-bottom: 48px; }
-    .foot-links a { color: rgba(245,239,224,0.45); transition: color 0.2s; text-decoration: none; }
-    .foot-links a:hover { color: var(--cream); }
-    .foot-links svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
     .foot-copy { font-family: var(--font-b); font-size: 0.7rem; letter-spacing: 0.12em; color: rgba(245,239,224,0.22); }
 
-    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: 0.15s; }
-    .d2 { transition-delay: 0.30s; }
-
     @media (max-width: 768px) {
-      #nav { padding: 22px 28px; }
-      #nav.scrolled { padding: 14px 28px; }
-      .sp-hero-text { padding: 0 28px 56px; }
-      .price-section { padding: 64px 28px 24px; }
-      .price-cards { grid-template-columns: 1fr; }
-      .incl-section { grid-template-columns: 1fr; padding: 0 28px 72px; gap: 32px; }
-      .transfer-note { padding: 40px 28px; }
-      .final-cta { padding: 72px 28px; }
+      #nav { padding: 22px 28px; flex-wrap: wrap; gap: 16px; }
+      .terms-header { padding: 48px 28px 56px; }
+      .notice-box { margin: -32px 20px 0; padding: 24px 28px; }
+      .terms-body { padding: 56px 28px 72px; }
     }
     @media (max-width: 540px) {
       .nav-links { display: none; }
@@ -171,235 +94,130 @@
     <a href="/" class="nav-logo"><img src="/innamo-logo-nav.png" alt="Innamo" style="height:22px;width:auto;display:block;"></a>
     <ul class="nav-links">
       <li><a href="/retreat">The Retreat</a></li>
-      <li><a href="/retreat/villa">The Villa</a></li>
-      <li><a href="/retreat/movement">Movement</a></li>
-      <li><a href="/retreat/food-wine">Food &amp; Wine</a></li>
-      <li><a href="/#enquire">Enquire</a></li>
+      <li><a href="/retreat/investment">The Investment</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section class="sp-hero">
-    <img src="/retreat-investment-card.jpg" alt="Villa Cecconi bathroom">
-    <div class="sp-hero-veil"></div>
-    <div class="sp-hero-text">
-      <p class="sp-hero-eyebrow">What&rsquo;s Included</p>
-      <h1 class="sp-hero-title">The Investment</h1>
-      <p class="sp-hero-sub">Pricing, what&rsquo;s included, and how to secure your place.</p>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <div class="price-section">
-    <p class="sp-eyebrow fade-up">Standard Prices, Per Person</p>
-    <h2 class="sp-title fade-up d1">Choose your room. Everything else is arranged.</h2>
-    <div class="price-cards">
-      <div class="price-card fade-up">
-        <p class="price-card-label">Single Occupancy</p>
-        <p class="price-card-amount">&pound;4,800</p>
-        <p class="price-card-note">Your own private room</p>
-      </div>
-      <div class="price-card fade-up d1">
-        <p class="price-card-label">Shared Occupancy</p>
-        <p class="price-card-amount">&pound;3,850</p>
-        <p class="price-card-note">First-come, first-served &mdash; book soon to share</p>
-      </div>
-    </div>
-    <p class="deposit-note fade-up d2"><strong>50% non-refundable deposit</strong> due at booking.</p>
+  <div class="terms-header">
+    <p class="terms-eyebrow">Wine &amp; Wellness Retreat</p>
+    <h1 class="terms-h1">Terms &amp; Conditions</h1>
   </div>
 
-  <!-- INCLUDED / NOT -->
-  <div class="incl-section">
-    <div class="incl-col yes fade-up">
-      <p class="incl-col-title">Included</p>
-      <ul>
-        <li>2&times; daily Pilates-based movement with our Founder and Head of Pilates</li>
-        <li>One airport transfer each way &mdash; to the villa, and back again</li>
-        <li>Luxury accommodation at Villa Cecconi</li>
-        <li>All food served in villa, including a daily aperitivo and a glass of wine with dinner</li>
-        <li>A private guided tour of Siena</li>
-        <li>One wine tasting, at Antinori Toscana</li>
-        <li>An optional 45-minute massage, for everyone</li>
-        <li>A goodie bag and a luxury bathrobe, yours to keep</li>
-      </ul>
-    </div>
-    <div class="incl-col no fade-up d1">
-      <p class="incl-col-title">Not Included</p>
-      <ul>
-        <li>Flights</li>
-        <li>Transport, if unable to make transfer times</li>
-        <li>Dinner in Siena &mdash; this is free time to explore the city</li>
-        <li>Alcohol beyond what&rsquo;s served with dinner or in the afternoon</li>
-        <li>The optional second wine tasting, at Castello di Ama</li>
-        <li>PT sessions or other optional activities</li>
-      </ul>
-    </div>
+  <div class="notice-box">
+    <p><strong>Retreat services provided by Innamo Travel, in partnership with HerSpace London.</strong> Please read these terms carefully before booking. If you do not already have a comprehensive travel insurance policy, we strongly advise taking one out as soon as possible after booking your retreat.</p>
   </div>
 
-  <!-- TRANSFER NOTE -->
-  <div class="transfer-note">
-    <p class="fade-up">One airport transfer will be provided on the Sunday, and one the following Friday. If you&rsquo;re unable to make that transfer, you&rsquo;ll need to make your own way to the villa.</p>
+  <div class="terms-body">
+
+    <p>Innamo Travel, Ltd &mdash; known and referred to hereafter as Innamo Travel &mdash; accepts bookings subject to the following conditions. All retreat participants must make themselves aware of these terms and conditions and accept the risks associated with the retreat activities. Each guest is responsible for taking out appropriate personal accident, holiday, cancellation and illness cover insurance for the full duration of their chosen retreat &mdash; this is a non-negotiable condition of booking.</p>
+
+    <h2>Interpretation &amp; Definitions</h2>
+    <p>In this agreement, unless otherwise specified, the following expressions refer to the following meanings.</p>
+    <p><strong>Booking</strong> &mdash; The booking made by the client with Innamo Travel, as set out on the Innamo Travel booking form.</p>
+    <p><strong>Booking Form</strong> &mdash; The booking form produced by Innamo Travel, to be completed by the client when and upon making a booking.</p>
+    <p><strong>Contract</strong> &mdash; The contract between the client and Innamo Travel, under which the services are provided by Innamo Travel to the client.</p>
+    <p><strong>Client</strong> &mdash; The individual who makes the booking with Innamo Travel. All individuals to whom the services are provided must be a minimum age of 18 years. Under special agreement, Innamo Travel may consider offering a retreat place to a person between the ages of 16 and 18, but only with written acceptance by Innamo Travel and special terms and conditions attached, including the guest being accompanied by an appropriate adult who assumes full responsibility for the minor.</p>
+    <p><strong>Payment</strong> &mdash; The total fee is due for payment strictly 6 full weeks in advance of the retreat commencement date.</p>
+    <p><strong>Fee</strong> &mdash; The amount payable to Innamo Travel under the contract.</p>
+    <p><strong>Deposit</strong> &mdash; A deposit of 50% of the booking fee per person is required to reserve each place at the retreat.</p>
+    <p><strong>Force Majeure / Special Circumstances</strong> &mdash; Any act, event, omission or accident beyond Innamo Travel&rsquo;s reasonable control, including but not limited to Act of God, war, riot, civil commotion, malicious damage, compliance with any law or government order, rule, pandemic, regulation or direction, accident, breakdown of plant or machinery, fire, flood, storm, adverse weather, default of suppliers or subcontractors, strikes, lock-outs, or other industrial disputes, or failure of a utility service or transport network. This also includes the closure of Italian borders, a national or global health issue such as a pandemic, or WHO, FCO, or Italian Government advice that it is not safe to travel to our location during a scheduled retreat.</p>
+    <p><strong>Major Change</strong> &mdash; A change in the date or over 80% of the content of the service, the exception being under &ldquo;special circumstances.&rdquo;</p>
+    <p><strong>Recordings</strong> &mdash; Photographs, videos, or any other audio-visual recordings taken of clients during the provision of the services.</p>
+
+    <h2>Acceptance</h2>
+    <p>A contract for the services is made between Innamo Travel and the client on the issue of a written confirmation of booking by Innamo Travel. The contract is subject to these booking conditions, which the client is deemed to have read and fully understood. These conditions can only be varied by written agreement between Innamo Travel and the client.</p>
+
+    <h2>Booking</h2>
+    <p>To place a booking, Innamo Travel requires a completed booking form together with payment of a deposit of 50% of the retreat cost per person, based upon single or shared occupancy. If a booking is made by telephone or email, the client is deemed to have read and fully understood these conditions. All bookings are provisional and only confirmed once the deposit payment has cleared Innamo Travel&rsquo;s bank account. Innamo Travel reserves the right to decline any booking at its discretion.</p>
+
+    <h2>Fee &amp; Payment Terms</h2>
+    <p>The fee payable at the time of booking (50% of the retreat cost) covers the planning, organising and delivery of the proposed services. The remaining balance is due at least 6 weeks prior to the commencement of the retreat, unless agreed otherwise in writing.</p>
+    <p>If the balance is not paid within the specified time frame, Innamo Travel may treat the booking as cancelled by the client and re-sell the retreat place. If the place is not reallocated, Innamo Travel will retain all fees paid thus far. Should a guest not pay in full within 30 days of the retreat start date, Innamo Travel has the right to cancel the reservation without notice or compensation, and no refund will be due.</p>
+
+    <h2>Responsibilities of the Client</h2>
+    <p>Travel to and from the retreat&rsquo;s country is the sole responsibility of the client, unless otherwise agreed in writing. Innamo Travel will provide one airport transfer each way, at specific times only &mdash; if a client cannot meet the transfer provided, they must make their own way to the retreat.</p>
+    <p>The client is responsible for their own personal medical needs, clothing and footwear for the duration of the services, and must inform Innamo Travel in writing of any past, present or potential health issues that may affect their participation. Failure to disclose may result in Innamo Travel terminating the contract without refund. If a letter of suitability is required from a guest&rsquo;s medical professional, it must be received a minimum of 7 days prior to the retreat start date.</p>
+    <p>It is the client&rsquo;s sole responsibility to ensure the balance is paid in full and on time, and to have purchased comprehensive and appropriate travel and medical insurance for the full duration of the retreat, including personal accident, holiday and cancellation insurance. Purchasing this insurance is a condition of booking.</p>
+
+    <h2>Medical &amp; Health</h2>
+    <p>All clients should be aware that participating in any exercise or movement programme carries the possibility of physical injury. By booking, you agree to assume such risk and release Innamo Travel from claims for liability, injury, loss or damage arising from your participation.</p>
+    <p>Any medical condition that may affect your participation must be disclosed prior to booking. If Innamo Travel believes your health or safety is at risk, or you have failed to disclose relevant information, your participation or contract may be terminated at Innamo Travel&rsquo;s discretion, without refund. It is always advisable to consult a doctor before beginning any exercise programme.</p>
+    <p>We strongly recommend comprehensive travel insurance including personal accident, cancellation cover, and cover for all of Innamo Travel&rsquo;s terms and conditions, purchased immediately upon booking.</p>
+
+    <h2>Variations &amp; Amendments</h2>
+    <p>Innamo Travel reserves the right to change any price or other particulars before the contract becomes binding. In the event of a major change, Innamo Travel will notify the client and seek to offer arrangements as close to the original as reasonably possible. For any other change, Innamo Travel is not obliged to inform the client in advance or pay compensation.</p>
+
+    <h2>Complimentary Group Airport Transfer</h2>
+    <p>The retreat offers a complimentary return private group airport transfer, offered on official arrival and departure days only, at set times &mdash; Innamo Travel reserves the right to change these times to accommodate the group. For guests whose flights are delayed and who miss the group transfer, Innamo Travel will help arrange an alternative, but the cost must be met by the guest.</p>
+
+    <h2>Cancellation by the Client</h2>
+    <p>If the client wishes to cancel, they must advise Innamo Travel in writing as soon as reasonably possible. Cancellation charges are based on the number of days before the retreat start date:</p>
+    <div class="table-note">
+      <p><strong>Less than 6 weeks before arrival:</strong> 100% of the retreat cost is retained by Innamo Travel.</p>
+      <p><strong>From time of booking:</strong> 50% of the retreat cost (the deposit) is retained by Innamo Travel.</p>
+    </div>
+    <p>Refunds are made minus any applicable bank or card payment fees, plus an administration fee of &pound;150.00 per client, and minus any third-party commissions where applicable. Bank transfer refunds are made in UK Sterling or Euros.</p>
+
+    <h2>Cancellation by Innamo Travel</h2>
+    <p>Innamo Travel will always endeavour to fulfil confirmed bookings. However, Innamo Travel reserves the right to cancel a scheduled retreat date or individual booking. If cancelled prior to commencement, the client will be offered an alternative date or a full refund of monies paid (minus card charges and third-party commission where applicable) &mdash; except where cancellation is due to special circumstances beyond Innamo Travel&rsquo;s control.</p>
+
+    <h2>Assignment</h2>
+    <p>The contract may be assigned by the client to a third party only with Innamo Travel&rsquo;s prior written consent. The client must give notice in writing with the third party&rsquo;s full name, address and contact details. Innamo Travel reserves the right to refuse an assignment at any time and without reason; if a client must then cancel, standard cancellation charges apply. Innamo Travel may assign or subcontract its own obligations without the client&rsquo;s consent.</p>
+
+    <h2>Services</h2>
+    <p>Innamo Travel reserves the right to alter the content of the services at any time without notice, due to factors including weather, staff availability, or guest fitness levels. If a client elects not to participate in any service, Innamo Travel has no obligation to provide an alternative and the client is not entitled to a refund.</p>
+    <p>Clients must refrain from any illegal act or conduct which may cause offence, danger or damage. If Innamo Travel or its team become aware of such conduct, the client may be removed from the property at Innamo Travel&rsquo;s absolute discretion, without refund or compensation.</p>
+
+    <h2>Extra Costs</h2>
+    <p>Costs incurred by guests during the retreat may include private 1-2-1 appointments with the retreat team, additional or offsite meals and snacks, additional activities provided by third parties, and shopping or alcohol purchased beyond what is included (approximately half a bottle of wine per person per day).</p>
+
+    <h2>Definition of Full Board</h2>
+    <p>Full board is defined as 3 meals per day (breakfast, lunch, dinner) on full retreat days only, excluding the Siena/Radda in Chianti day trip, during which guests provide their own lunch. On arrival day, only a welcome dinner and light snacks are provided; on departure day, only breakfast is included.</p>
+
+    <h2>Complaints</h2>
+    <p>Any problem during the retreat should be reported to the Retreat Director so it can be resolved promptly. If unresolved, complaints must be notified to Innamo Travel in writing within 7 days of the end of the retreat. Failure to do so precludes further action against Innamo Travel.</p>
+
+    <h2>Venue</h2>
+    <p>Villa Cecconi offers accommodation in private en suite rooms for retreat durations of 6 nights or less, with maid service including a mid-week linen change. We operate a privacy policy for guests &mdash; venue staff will only enter a room when the guest is present or with permission, except in an emergency.</p>
+    <p>The retreat finishes at 10.00am exactly on the day of departure. Guests must vacate rooms by 10.00am, though where possible a later departure (up to 12.00 noon) may be accommodated at the venue&rsquo;s discretion.</p>
+
+    <h2>Liability</h2>
+    <p>None of the exclusions in these conditions limit any rights the client may have under statute or common law, nor exclude liability for personal injury or death resulting from Innamo Travel&rsquo;s negligence, or liability for fraud or fraudulent misrepresentation.</p>
+    <p>The client understands that attending any activity involves some level of risk, including but not limited to physical injury. By attending, the client agrees to assume these risks and release Innamo Travel and its directors, employees and agents from claims for liability. Neither Innamo Travel nor its representatives will be liable for loss or damage to personal property or vehicles belonging to the client during the services.</p>
+    <p>It is the sole responsibility of the client to purchase full and adequate medical, personal injury and holiday insurance for the full duration of their stay.</p>
+
+    <h2>Media</h2>
+    <p>Innamo Travel reserves the right to take photographs or recordings of clients during the services. The client accepts that all rights in such recordings are solely owned by Innamo Travel, and that they may be used at Innamo Travel&rsquo;s discretion in any manner, including on its website, promotional material and advertisements.</p>
+
+    <h2>Copyright</h2>
+    <p>Innamo Travel reserves all copyright which may subsist in the products of, or in connection with, the provision of its activities, services or facilities, and reserves the right to take action to restrain or prevent infringement.</p>
+
+    <h2>Law &amp; Jurisdiction</h2>
+    <p>These terms and conditions are governed by and construed in accordance with Italian law, and the parties submit to the non-exclusive jurisdiction of the Italian courts.</p>
+
+    <h2>Privacy Policy</h2>
+    <p>Innamo Travel is committed to protecting and respecting your privacy. Personal data you submit is retained for as long as you use our services and systems. Financial data is not stored or recorded. Your data will not be disclosed to third parties unless we are obliged or permitted by law to do so. All personal data is stored securely.</p>
+    <p>Data may be used for internal record keeping, to help improve our products and services, and to transmit details of our products and services which may be of interest to you, including by email, telephone or postal mail.</p>
+
+    <h2>Third-Party Websites &amp; Services</h2>
+    <p>Innamo Travel may, from time to time, employ other parties for matters including payment handling, delivery, search engine facilities, advertising and marketing. Providers of such services may have access to certain personal data provided by users of this website.</p>
+
+    <h2>Cookies</h2>
+    <p>Innamo Travel may set and access cookies on your computer to estimate audience size and patterns, store your preferences, speed up searches, and recognise you on return visits. You may restrict or delete cookies via your browser, though this may prevent you from using the full range of services on the website.</p>
+
+    <h2>Special Circumstances</h2>
+    <p>Under special circumstances, providing a minimum of 4 weeks&rsquo; notice and that Innamo Travel is hosting another retreat in the same financial year, Innamo Travel will offer to move the client&rsquo;s reservation to an alternative date within the same financial year. Any difference in rate must be paid or refunded accordingly, with additional payment due 6 weeks prior to the new start date. No administration charge applies under special circumstances, but the deposit becomes non-refundable once a move is elected, and a maximum of one move is possible.</p>
+
+    <h2>Company Details</h2>
+    <p>Innamo Travel, Ltd is registered in England and Wales. Company number: 13537996.</p>
+
   </div>
-
-  <figure class="scene-img">
-    <img src="/retreat-gallery-pool.jpg" alt="Villa Cecconi pool" loading="lazy">
-  </figure>
-
-  <!-- REGISTER -->
-  <section class="register-section" id="register">
-    <div class="register-head fade-up">
-      <p class="sp-eyebrow" style="text-align:center;">Secure Your Place</p>
-      <h2 class="sp-title" style="text-align:center;">Register your interest.</h2>
-      <p style="font-family:var(--font-b);font-size:0.95rem;color:rgba(44,24,16,0.65);max-width:480px;margin:0 auto;">This isn&rsquo;t a payment &mdash; it starts the conversation. We&rsquo;ll reply within 48 hours to talk through room options and take your deposit to confirm.</p>
-    </div>
-    <form id="register-form" class="fade-up d1">
-      <div class="reg-row">
-        <div class="reg-group">
-          <label for="r-name">Name</label>
-          <input id="r-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
-        </div>
-        <div class="reg-group">
-          <label for="r-email">Email</label>
-          <input id="r-email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required>
-        </div>
-      </div>
-      <div class="reg-row">
-        <div class="reg-group">
-          <label for="r-phone">Phone</label>
-          <input id="r-phone" name="phone" type="tel" placeholder="Your phone number" autocomplete="tel">
-        </div>
-        <div class="reg-group">
-          <label for="r-room">Room Preference</label>
-          <select id="r-room" name="room">
-            <option value="" disabled selected>Select an option</option>
-            <option>Single occupancy &mdash; &pound;4,800</option>
-            <option>Shared occupancy &mdash; &pound;3,850</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-      </div>
-      <div class="reg-row">
-        <div class="reg-group">
-          <label for="r-message">Anything Else?</label>
-          <textarea id="r-message" name="message" placeholder="Dietary needs, who you'd like to share with, questions&hellip;"></textarea>
-        </div>
-      </div>
-      <div class="reg-submit">
-        <button type="submit" class="btn" id="register-btn">Register Your Place</button>
-      </div>
-      <p class="reg-note">A 50% non-refundable deposit secures your place once we&rsquo;re in touch. By registering, you agree to our <a href="/retreat/terms" style="color:var(--terracotta);">Terms &amp; Conditions</a>.</p>
-      <div id="reg-success"><p>Thank you &mdash; we&rsquo;ll be in touch within 48 hours.</p></div>
-      <div id="reg-error"><p>Something went wrong. Please email us directly at <a href="mailto:innamotravel@gmail.com" style="color:var(--terracotta);">innamotravel@gmail.com</a></p></div>
-    </form>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="final-cta">
-    <p class="final-cta-eyebrow fade-up">One villa. One week a year. A handful of spaces.</p>
-    <p class="final-cta-title fade-up d1">Your week in Tuscany is waiting. Come and take it.</p>
-    <div class="final-btns fade-up d2">
-      <a href="#register" class="btn">Register Your Interest</a>
-      <a href="/retreat" class="btn btn-ghost">Back To The Retreat</a>
-    </div>
-  </section>
 
   <footer>
     <div class="foot-logo">Innamo</div>
     <p class="foot-strap">For the love of Italy</p>
-    <div class="foot-links">
-      <a href="#">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07
-            3.252.148 4.771 1.691 4.919 4.919
-            .058 1.265.069 1.645.069 4.849
-            0 3.205-.012 3.584-.069 4.849
-            -.149 3.225-1.664 4.771-4.919 4.919
-            -1.266.058-1.644.07-4.85.07
-            -3.204 0-3.584-.012-4.849-.07
-            -3.26-.149-4.771-1.699-4.919-4.92
-            -.058-1.265-.07-1.644-.07-4.849
-            0-3.204.013-3.583.07-4.849
-            .149-3.227 1.664-4.771 4.919-4.919
-            1.266-.057 1.645-.069 4.849-.069z
-            m0-2.163c-3.259 0-3.667.014-4.947.072
-            -4.358.2-6.78 2.618-6.98 6.98
-            -.059 1.281-.073 1.689-.073 4.948
-            0 3.259.014 3.668.072 4.948
-            .2 4.358 2.618 6.78 6.98 6.98
-            1.281.058 1.689.072 4.948.072
-            3.259 0 3.668-.014 4.948-.072
-            4.354-.2 6.782-2.618 6.979-6.98
-            .059-1.28.073-1.689.073-4.948
-            0-3.259-.014-3.667-.072-4.947
-            -.196-4.354-2.617-6.78-6.979-6.98
-            -1.281-.059-1.69-.073-4.949-.073z
-            m0 5.838c-3.403 0-6.162 2.759-6.162 6.162
-            s2.759 6.163 6.162 6.163
-            6.162-2.759 6.162-6.163
-            c0-3.403-2.759-6.162-6.162-6.162z
-            m0 10.162c-2.209 0-4-1.79-4-4
-            0-2.209 1.791-4 4-4s4 1.791 4 4
-            c0 2.21-1.791 4-4 4z
-            m6.406-11.845c-.796 0-1.441.645-1.441 1.44
-            s.645 1.44 1.441 1.44
-            c.795 0 1.439-.645 1.439-1.44
-            s-.644-1.44-1.439-1.44z"/>
-        </svg>
-        @innamotravel
-      </a>
-      <a href="mailto:innamotravel@gmail.com">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9
-            2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-        </svg>
-        hello@innamo.travel
-      </a>
-    </div>
     <p class="foot-copy">Personally curated Italian travel &nbsp;&middot;&nbsp; Est. 2026</p>
   </footer>
-
-  <script>
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    });
-
-    const regForm = document.getElementById('register-form');
-    regForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = document.getElementById('register-btn');
-      const successEl = document.getElementById('reg-success');
-      const errorEl = document.getElementById('reg-error');
-      successEl.style.display = 'none';
-      errorEl.style.display = 'none';
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-
-      const data = Object.fromEntries(new FormData(regForm).entries());
-
-      try {
-        const res = await fetch('/api/register-retreat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-        if (!res.ok) throw new Error('Request failed');
-        regForm.reset();
-        regForm.querySelectorAll('.reg-row, .reg-submit, .reg-note').forEach(el => el.style.display = 'none');
-        successEl.style.display = 'block';
-      } catch (err) {
-        errorEl.style.display = 'block';
-        btn.disabled = false;
-        btn.textContent = 'Register Your Place';
-      }
-    });
-
-    const faders = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.12 });
-    faders.forEach(f => observer.observe(f));
-  </script>
 
 </body>
 </html>

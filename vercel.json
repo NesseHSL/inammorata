@@ -63,6 +63,14 @@
     {
       "source": "/retreat/investment",
       "destination": "/retreat-investment.html"
+    },
+    {
+      "source": "/retreat/movement",
+      "destination": "/retreat-movement.html"
+    },
+    {
+      "source": "/retreat/terms",
+      "destination": "/retreat-terms.html"
     }
   ]
 }

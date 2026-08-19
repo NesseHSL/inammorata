@@ -79,8 +79,12 @@
     .thin-rule { width: 48px; height: 1px; background: var(--terracotta); opacity: 0.45; margin: 56px auto; }
 
     .scene-img { width: 100%; overflow: hidden; margin: 0; }
-    .scene-img img { width: 100%; height: 52vh; min-height: 300px; object-fit: cover; object-position: center; display: block; }
+    .scene-img img, .scene-img video { width: 100%; height: 52vh; min-height: 300px; object-fit: cover; object-position: center; display: block; }
     .scene-img figcaption { font-family: var(--font-b); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(44,24,16,0.35); text-align: right; padding: 10px 40px 0; }
+
+    .food-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; max-width: 1180px; margin: 0 auto 96px; padding: 0 40px; }
+    .food-gallery img { width: 100%; height: 320px; object-fit: cover; display: block; }
+    @media (max-width: 900px) { .food-gallery { grid-template-columns: 1fr; padding: 0 20px; gap: 8px; margin-bottom: 64px; } .food-gallery img { height: 280px; } }
 
     /* WINE PANEL */
     .wine-panel { background: var(--espresso); color: var(--cream); padding: 72px 40px; }
@@ -138,6 +142,7 @@
     <ul class="nav-links">
       <li><a href="/retreat">The Retreat</a></li>
       <li><a href="/retreat/villa">The Villa</a></li>
+      <li><a href="/retreat/movement">Movement</a></li>
       <li><a href="/retreat/investment">The Investment</a></li>
       <li><a href="/#enquire">Enquire</a></li>
     </ul>
@@ -169,6 +174,21 @@
     <p class="fade-up d2">All meals served at the villa are vegetarian/pescatarian.</p>
   </div>
 
+  <!-- FOOD GALLERY -->
+  <div class="food-gallery">
+    <img src="/retreat-food-asparagus.jpg" alt="Grilled asparagus and courgette" loading="lazy">
+    <img src="/retreat-food-watermelon.jpg" alt="Watermelon and feta salad" loading="lazy">
+    <img src="/retreat-food-salad.jpg" alt="Nicoise-style salad" loading="lazy">
+  </div>
+
+  <!-- SCENE VIDEO -->
+  <figure class="scene-img">
+    <video autoplay muted loop playsinline poster="/retreat-lunch-poster.jpg">
+      <source src="/retreat-lunch.mp4" type="video/mp4">
+    </video>
+    <figcaption>Lunch, Family-Style</figcaption>
+  </figure>
+
   <!-- SCENE IMAGE -->
   <figure class="scene-img">
     <img src="/chianti-vines.jpg" alt="Chianti Classico vines" loading="lazy">
@@ -185,11 +205,18 @@
     </div>
   </section>
 
+  <!-- SCENE VIDEO -->
+  <figure class="scene-img">
+    <video autoplay muted loop playsinline poster="/retreat-champagne-poster.jpg">
+      <source src="/retreat-champagne.mp4" type="video/mp4">
+    </video>
+  </figure>
+
   <!-- CROSS LINKS -->
   <section class="sp-cross">
-    <p class="sp-cross-title fade-up">Ready to see what it costs?</p>
+    <p class="sp-cross-title fade-up">Ready to Book Your Room?</p>
     <div class="sp-cross-links fade-up d1">
-      <a href="/retreat/investment" class="btn">See The Investment</a>
+      <a href="/retreat/investment#register" class="btn">Register Your Place</a>
       <a href="/retreat/villa" class="btn btn-ghost">Back To The Villa</a>
     </div>
   </section>
