@@ -47,6 +47,22 @@
     {
       "source": "/merilee",
       "destination": "/merilee.html"
+    },
+    {
+      "source": "/retreat",
+      "destination": "/retreat.html"
+    },
+    {
+      "source": "/retreat/villa",
+      "destination": "/retreat-villa.html"
+    },
+    {
+      "source": "/retreat/food-wine",
+      "destination": "/retreat-food-wine.html"
+    },
+    {
+      "source": "/retreat/investment",
+      "destination": "/retreat-investment.html"
     }
   ]
 }
