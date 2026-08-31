@@ -1,0 +1,27 @@
+# This folder doubles as Hillary's general Innamo business folder, so
+# personal/business documents get saved here alongside the website source.
+# This repo is public on GitHub — none of the below should ever be committed.
+
+.DS_Store
+.claude/
+
+# Business & personal documents
+*.pdf
+*.docx
+*.xlsx
+*.HEIC
+*.heic
+*.MOV
+*.mov
+
+# Business document folders (not website assets)
+Invoicing/
+Retreat/
+Villa_1_Merilee/
+Villa_2_Merilee/
+
+# Duplicate/reference copy of the logos already tracked at repo root
+Logos/
+
+# Scratch output from make_video.py, not website source
+video_cache/
