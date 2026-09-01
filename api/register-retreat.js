@@ -23,6 +23,13 @@ export default async function handler(req, res) {
 
   const firstName = name.split(' ')[0];
 
+  // Log every registration independently of whether the emails below
+  // succeed - this is currently the only backup record of a submission,
+  // so a Gmail auth failure or similar shouldn't cost the lead entirely.
+  // Awaited (not fire-and-forget) since Vercel can freeze the function
+  // before an un-awaited request completes.
+  await saveRegistration({ name, email, phone, room, message });
+
   // ── Auto-reply to the guest ─────────────────────────────────────────────
   const clientEmail = `
 <!DOCTYPE html>
@@ -150,5 +157,25 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error('Email error:', error);
     return res.status(500).json({ error: 'Failed to send email' });
+  }
+}
+
+async function saveRegistration({ name, email, phone, room, message }) {
+  try {
+    const res = await fetch(`${process.env.SUPABASE_URL}/rest/v1/innamo_retreat_registrations`, {
+      method: 'POST',
+      headers: {
+        'apikey':        process.env.SUPABASE_PUBLISHABLE_KEY,
+        'Authorization': `Bearer ${process.env.SUPABASE_SECRET_SERVICE_KEY}`,
+        'Content-Type':  'application/json',
+        'Prefer':        'return=minimal',
+      },
+      body: JSON.stringify([{ name, email, phone: phone || null, room: room || null, message: message || null }]),
+    });
+    if (!res.ok) {
+      console.error('Failed to save retreat registration:', res.status, await res.text());
+    }
+  } catch (err) {
+    console.error('Failed to save retreat registration:', err.message);
   }
 }
