@@ -19,13 +19,13 @@ export default async function handler(req, res) {
   }
 
   const {
-    firstName, lastName, address, mobile, email, gender,
+    firstName, lastName, address, mobile, email, gender, source,
     roomType, roommateName, roommateEmail,
     extraPT, extraNutrition, extraMassage, extraWineTasting,
     dietary, paymentMethod, houseRulesAck,
   } = req.body;
 
-  if (!firstName || !lastName || !address || !mobile || !email || !gender || !roomType || !paymentMethod) {
+  if (!firstName || !lastName || !address || !mobile || !email || !gender || !source || !roomType || !paymentMethod) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
   if (roomType === 'shared' && (!roommateName || !roommateEmail)) {
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
   // succeed - this is the only backup record of a submission, so a Gmail
   // auth failure or similar shouldn't cost the booking entirely.
   await saveBooking({
-    firstName, lastName, address, mobile, email, gender,
+    firstName, lastName, address, mobile, email, gender, source,
     roomType, roommateName, roommateEmail,
     extraPT, extraNutrition, extraMassage, extraWineTasting,
     dietary, paymentMethod, houseRulesAck,
@@ -161,6 +161,7 @@ export default async function handler(req, res) {
               <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Mobile:</strong> ${mobile}</p>
               <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Address:</strong> ${address}</p>
               <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Gender:</strong> ${gender}</p>
+              <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Heard about us via:</strong> ${source}</p>
               <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Room:</strong> ${roomLabel}, £${deposit} deposit due</p>
               ${roomType === 'shared' ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Roommate:</strong> ${roommateName} (${roommateEmail})</p>` : ''}
               ${extras.length ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Extras:</strong> ${extras.join(', ')}</p>` : ''}
@@ -216,6 +217,7 @@ async function saveBooking(fields) {
         mobile:             fields.mobile,
         email:              fields.email,
         gender:             fields.gender,
+        source:             fields.source,
         room_type:          fields.roomType,
         roommate_name:      fields.roommateName || null,
         roommate_email:     fields.roommateEmail || null,

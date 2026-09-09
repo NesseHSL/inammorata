@@ -13,6 +13,7 @@ create table if not exists innamo_retreat_bookings (
   mobile            text not null,
   email             text not null,
   gender            text not null,
+  source            text not null,              -- how they heard about us
   room_type         text not null,              -- 'single' | 'shared'
   roommate_name     text,
   roommate_email    text,

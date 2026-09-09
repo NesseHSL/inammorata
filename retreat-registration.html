@@ -133,7 +133,7 @@
   <img src="/innamo-logo-nav.png" alt="Innamo" class="rf-logo">
   <p class="rf-eyebrow">Complete Your Registration</p>
   <h1 class="rf-title">Wine &amp; Wellness Retreat 2027</h1>
-  <p class="rf-sub">8&ndash;15 May 2027 &middot; Villa Cecconi, near Siena. A few details, then you're in.</p>
+  <p class="rf-sub">8&ndash;15 May 2027 &middot; Villa Cecconi, near Siena. A few details, then you're in.<br><a href="/wine-wellness-retreat-brochure.pdf" target="_blank" rel="noopener" style="color:var(--terracotta)">View the full brochure &rarr;</a></p>
 
   <form id="rf-form">
 
@@ -177,6 +177,25 @@
           </select>
         </div>
       </div>
+      <div class="rf-row">
+        <div class="rf-group">
+          <label for="rf-source">How Did You Hear About Us?</label>
+          <select id="rf-source" name="source" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Innamo.Travel">Innamo.Travel</option>
+            <option value="Local WhatsApp group">Local WhatsApp group</option>
+            <option value="Friend or referral">Friend or referral</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="rf-row" id="rf-source-other-row" style="display:none">
+        <div class="rf-group">
+          <label for="rf-source-other">Tell Us More</label>
+          <input id="rf-source-other" name="sourceOther" type="text" placeholder="Where did you hear about us?">
+        </div>
+      </div>
     </div>
 
     <!-- ROOM -->
@@ -216,27 +235,27 @@
       <div class="rf-checkbox-row">
         <input type="checkbox" id="rf-pt" name="extraPT">
         <div>
-          <label for="rf-pt" class="rf-cb-title">1:1 PT Session <span class="rf-cb-price">&mdash; &pound;75</span></label>
+          <label for="rf-pt" class="rf-cb-title">1:1 PT Session <span class="rf-cb-price">&middot; &pound;75</span></label>
         </div>
       </div>
       <div class="rf-checkbox-row">
         <input type="checkbox" id="rf-nutrition" name="extraNutrition">
         <div>
-          <label for="rf-nutrition" class="rf-cb-title">Nutritional Consultation <span class="rf-cb-price">&mdash; &pound;75</span></label>
+          <label for="rf-nutrition" class="rf-cb-title">Nutritional Consultation <span class="rf-cb-price">&middot; &pound;75</span></label>
         </div>
       </div>
       <div class="rf-checkbox-row">
         <input type="checkbox" id="rf-massage" name="extraMassage">
         <div>
-          <label for="rf-massage" class="rf-cb-title">Massage <span class="rf-cb-price" style="color:var(--sage)">&mdash; Included</span></label>
+          <label for="rf-massage" class="rf-cb-title">Massage <span class="rf-cb-price" style="color:var(--sage)">&middot; Included</span></label>
           <p class="rf-cb-note">Already included in your retreat fee, we just need you to opt in so we can schedule it.</p>
         </div>
       </div>
       <div class="rf-checkbox-row">
         <input type="checkbox" id="rf-wine2" name="extraWineTasting">
         <div>
-          <label for="rf-wine2" class="rf-cb-title">Second Wine Tasting <span class="rf-cb-price">&mdash; &pound;120pp</span></label>
-          <p class="rf-cb-note">An additional charge on top of your retreat fee, we'll invoice separately closer to the date.</p>
+          <label for="rf-wine2" class="rf-cb-title">Second Wine Tasting at Castello di Ama <span class="rf-cb-price">&middot; &pound;120pp</span></label>
+          <p class="rf-cb-note">Your first tasting, at Antinori Toscana, is already included in your stay. This one's an optional add-on: Castello di Ama in Chianti Classico, as well known for its wine as for the contemporary art installations woven through the estate and vineyards. An additional charge on top of your retreat fee, we'll invoice separately closer to the date.</p>
         </div>
       </div>
     </div>
@@ -305,7 +324,7 @@
       <p class="rf-required-note">By submitting, you agree to our <a href="/retreat/terms" style="color:var(--terracotta)">Terms &amp; Conditions</a>. Your deposit is non-refundable once confirmed.</p>
     </div>
 
-    <div id="rf-success"><p>Thank you &mdash; your registration is in. We'll be in touch within 24 hours to confirm your place and take payment.</p></div>
+    <div id="rf-success"><p>Thank you. Your registration is in. We'll be in touch within 24 hours to confirm your place and take payment.</p></div>
     <div id="rf-error"><p>Something went wrong. Please email us directly at <a href="mailto:innamotravel@gmail.com" style="color:var(--terracotta)">innamotravel@gmail.com</a> and we'll sort it by hand.</p></div>
 
   </form>
@@ -343,6 +362,15 @@
   }
   roomRadios.forEach(r => r.addEventListener('change', updateRoomUI));
 
+  const sourceSelect = document.getElementById('rf-source');
+  const sourceOtherRow = document.getElementById('rf-source-other-row');
+  const sourceOtherInput = document.getElementById('rf-source-other');
+  sourceSelect.addEventListener('change', () => {
+    const isOther = sourceSelect.value === 'Other';
+    sourceOtherRow.style.display = isOther ? 'flex' : 'none';
+    sourceOtherInput.required = isOther;
+  });
+
   const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
   const bacsDetails = document.getElementById('rf-bacs-details');
   const cardNote = document.getElementById('rf-card-note');
@@ -371,6 +399,7 @@
       mobile: form.mobile.value,
       email: form.email.value,
       gender: form.gender.value,
+      source: form.source.value === 'Other' ? (form.sourceOther.value || 'Other') : form.source.value,
       roomType: form.roomType.value,
       roommateName: form.roommateName.value || null,
       roommateEmail: form.roommateEmail.value || null,

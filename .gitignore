@@ -14,6 +14,10 @@
 *.MOV
 *.mov
 
+# Deliberate exception: the public retreat brochure, meant to be
+# downloadable from the site itself, not a private business document.
+!wine-wellness-retreat-brochure.pdf
+
 # Business document folders (not website assets)
 Invoicing/
 Retreat/
