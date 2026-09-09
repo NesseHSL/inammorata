@@ -215,7 +215,7 @@
       </div>
 
       <div id="rf-roommate">
-        <p class="rf-note" style="margin-bottom:14px">We don't pair guests we don't know with one another, so a shared room only gets confirmed once both people have registered. Please give us your roommate's details below, and let them know to register too if they haven't already.</p>
+        <p class="rf-note" style="margin-bottom:14px">If booking a shared room, please let us know your roommate's name here. They will also need to fill out their own registration form with us, but this ensures we assign you both to the same room.</p>
         <div class="rf-row">
           <div class="rf-group">
             <label for="rf-roommate-name">Roommate's Name</label>
@@ -271,30 +271,45 @@
       </div>
     </div>
 
+    <!-- HEALTH -->
+    <div class="rf-section">
+      <p class="rf-section-label">Health &amp; Movement</p>
+      <p class="rf-note">As this retreat includes daily exercise, please let us know about any health or movement issues we need to know about.</p>
+      <div class="rf-row">
+        <div class="rf-group">
+          <textarea id="rf-health" name="health" placeholder="e.g. a bad knee, a recent injury, anything we should be mindful of&hellip; or leave blank if none"></textarea>
+        </div>
+      </div>
+    </div>
+
     <!-- DEPOSIT -->
     <div class="rf-section">
       <p class="rf-section-label">Securing Your Place</p>
       <div class="rf-deposit-summary">
-        <p>A 50% deposit secures your place. Based on the room you selected above, your deposit is:</p>
-        <p class="rf-deposit-amount" id="rf-deposit-amount">Select a room above</p>
+        <p>A 50% deposit secures your place. Select your room above to see your exact deposit amount below.</p>
       </div>
       <div class="rf-radio-row">
         <label class="rf-radio-card">
           <input type="radio" name="paymentMethod" value="bacs" required>
           <span class="rf-radio-title">Bank Transfer (BACS)</span>
+          <span class="rf-radio-price" id="rf-bacs-amount">Select a room above</span>
         </label>
         <label class="rf-radio-card">
           <input type="radio" name="paymentMethod" value="card" required>
           <span class="rf-radio-title">Card Payment</span>
+          <span class="rf-radio-price" id="rf-card-amount">Select a room above</span>
           <span class="rf-cb-note" style="font-size:0.78rem;color:rgba(44,24,16,0.5)">3% processing charge applies</span>
         </label>
       </div>
 
       <div id="rf-bacs-details">
-        <strong>Bank transfer details will be included in your confirmation email</strong>, along with a payment reference to use. Please use your full name as the reference so we can match your payment.
+        <strong>Sort code:</strong> 04-06-05<br>
+        <strong>Account number:</strong> 14100042<br>
+        <strong>Account name:</strong> Innamo Travel Ltd<br><br>
+        Please use your full name as the payment reference, so we can match your transfer.
       </div>
       <div id="rf-card-note">
-        We'll send you a secure card payment link by email within 24 hours, including the 3% processing charge.
+        <span id="rf-card-link-area">Select a room above to see your payment link.</span>
       </div>
     </div>
 
@@ -336,29 +351,40 @@
   const roommateBlock = document.getElementById('rf-roommate');
   const roommateName = document.getElementById('rf-roommate-name');
   const roommateEmail = document.getElementById('rf-roommate-email');
-  const depositAmountEl = document.getElementById('rf-deposit-amount');
+  const bacsAmountEl = document.getElementById('rf-bacs-amount');
+  const cardAmountEl = document.getElementById('rf-card-amount');
 
   const DEPOSITS = { shared: '£1,925', single: '£2,425' };
+
+  // Fixed-amount payment links, one per room type, since the deposit
+  // differs by room. Single occupancy's link is still pending from Hillary.
+  const CARD_LINKS = {
+    shared: 'https://pay.tide.co/b8d39e53-fb7f-4a23-93c0-0e233f1947a3',
+    single: null,
+  };
 
   function updateRoomUI(){
     const selected = document.querySelector('input[name="roomType"]:checked');
     if(!selected){
-      depositAmountEl.textContent = 'Select a room above';
+      bacsAmountEl.textContent = 'Select a room above';
+      cardAmountEl.textContent = 'Select a room above';
       roommateBlock.classList.remove('visible');
       roommateName.required = false;
       roommateEmail.required = false;
-      return;
-    }
-    depositAmountEl.textContent = DEPOSITS[selected.value] + ' deposit due';
-    if(selected.value === 'shared'){
-      roommateBlock.classList.add('visible');
-      roommateName.required = true;
-      roommateEmail.required = true;
     } else {
-      roommateBlock.classList.remove('visible');
-      roommateName.required = false;
-      roommateEmail.required = false;
+      bacsAmountEl.textContent = DEPOSITS[selected.value] + ' deposit due';
+      cardAmountEl.textContent = DEPOSITS[selected.value] + ' deposit due';
+      if(selected.value === 'shared'){
+        roommateBlock.classList.add('visible');
+        roommateName.required = true;
+        roommateEmail.required = true;
+      } else {
+        roommateBlock.classList.remove('visible');
+        roommateName.required = false;
+        roommateEmail.required = false;
+      }
     }
+    updatePaymentUI();
   }
   roomRadios.forEach(r => r.addEventListener('change', updateRoomUI));
 
@@ -374,10 +400,25 @@
   const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
   const bacsDetails = document.getElementById('rf-bacs-details');
   const cardNote = document.getElementById('rf-card-note');
+  const cardLinkArea = document.getElementById('rf-card-link-area');
   function updatePaymentUI(){
-    const selected = document.querySelector('input[name="paymentMethod"]:checked');
-    bacsDetails.classList.toggle('visible', selected && selected.value === 'bacs');
-    cardNote.classList.toggle('visible', selected && selected.value === 'card');
+    const paymentSelected = document.querySelector('input[name="paymentMethod"]:checked');
+    const roomSelected = document.querySelector('input[name="roomType"]:checked');
+    bacsDetails.classList.toggle('visible', paymentSelected && paymentSelected.value === 'bacs');
+    cardNote.classList.toggle('visible', paymentSelected && paymentSelected.value === 'card');
+
+    if(paymentSelected && paymentSelected.value === 'card'){
+      if(!roomSelected){
+        cardLinkArea.textContent = 'Select a room above to see your payment link.';
+      } else {
+        const link = CARD_LINKS[roomSelected.value];
+        if(link){
+          cardLinkArea.innerHTML = `Pay your ${DEPOSITS[roomSelected.value]} deposit securely by card: <a href="${link}" target="_blank" rel="noopener" style="color:var(--terracotta);font-weight:500">Pay now &rarr;</a>`;
+        } else {
+          cardLinkArea.textContent = "We'll send you a secure card payment link by email within 24 hours, including the 3% processing charge.";
+        }
+      }
+    }
   }
   paymentRadios.forEach(r => r.addEventListener('change', updatePaymentUI));
 
@@ -408,6 +449,7 @@
       extraMassage: form.extraMassage.checked,
       extraWineTasting: form.extraWineTasting.checked,
       dietary: form.dietary.value || null,
+      health: form.health.value || null,
       paymentMethod: form.paymentMethod.value,
       houseRulesAck: form.houseRulesAck.checked,
     };

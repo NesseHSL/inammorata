@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     firstName, lastName, address, mobile, email, gender, source,
     roomType, roommateName, roommateEmail,
     extraPT, extraNutrition, extraMassage, extraWineTasting,
-    dietary, paymentMethod, houseRulesAck,
+    dietary, health, paymentMethod, houseRulesAck,
   } = req.body;
 
   if (!firstName || !lastName || !address || !mobile || !email || !gender || !source || !roomType || !paymentMethod) {
@@ -52,7 +52,7 @@ export default async function handler(req, res) {
     firstName, lastName, address, mobile, email, gender, source,
     roomType, roommateName, roommateEmail,
     extraPT, extraNutrition, extraMassage, extraWineTasting,
-    dietary, paymentMethod, houseRulesAck,
+    dietary, health, paymentMethod, houseRulesAck,
   });
 
   // ── Auto-reply to the guest ─────────────────────────────────────────────
@@ -99,6 +99,7 @@ export default async function handler(req, res) {
               ${roomType === 'shared' ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Rooming with:</strong> ${roommateName}</p>` : ''}
               ${extras.length ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Extras:</strong> ${extras.join(', ')}</p>` : ''}
               ${dietary ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Dietary notes:</strong> ${dietary}</p>` : ''}
+              ${health ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Health/movement notes:</strong> ${health}</p>` : ''}
               ${paymentBlock}
 
               <p style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:rgba(44,24,16,0.82);margin:24px 0 0;">
@@ -166,6 +167,7 @@ export default async function handler(req, res) {
               ${roomType === 'shared' ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Roommate:</strong> ${roommateName} (${roommateEmail})</p>` : ''}
               ${extras.length ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Extras:</strong> ${extras.join(', ')}</p>` : ''}
               ${dietary ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Dietary:</strong> ${dietary}</p>` : ''}
+              ${health ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Health/movement:</strong> ${health}</p>` : ''}
               <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0;"><strong>Payment method:</strong> ${paymentMethod === 'bacs' ? 'Bank transfer (BACS), send them the account details and reference' : 'Card, send them a secure payment link (+3%)'}</p>
             </td>
           </tr>
@@ -226,6 +228,7 @@ async function saveBooking(fields) {
         extra_massage:      !!fields.extraMassage,
         extra_wine_tasting: !!fields.extraWineTasting,
         dietary:            fields.dietary || null,
+        health:             fields.health || null,
         payment_method:     fields.paymentMethod,
         house_rules_ack:    !!fields.houseRulesAck,
       }]),
