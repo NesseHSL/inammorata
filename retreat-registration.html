@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Your Registration — Wine &amp; Wellness Retreat — Innamo</title>
+<meta name="description" content="Complete your registration for the Wine &amp; Wellness Retreat, 8–15 May 2027, in partnership with HerSpace London.">
+<link rel="icon" href="data:,">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --cream:#F5EFE0;
+    --cream-mid:#EDE4CC;
+    --terracotta:#C4622D;
+    --terra-dark:#A8521F;
+    --espresso:#2C1810;
+    --sage:#8B9D77;
+    --font-d:'Cormorant Garamond',Georgia,serif;
+    --font-b:'EB Garamond',Georgia,serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--cream);color:var(--espresso);font-family:var(--font-b);font-size:17px;line-height:1.6}
+
+  .rf-nav{
+    background:var(--espresso);padding:20px 40px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .rf-nav a{color:rgba(245,239,224,0.6);font-family:var(--font-b);font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;transition:color 0.2s}
+  .rf-nav a:hover{color:var(--cream)}
+
+  .rf-wrap{max-width:640px;margin:0 auto;padding:64px 24px 100px}
+
+  .rf-logo{display:block;height:52px;width:auto;margin:0 auto 28px}
+  .rf-heading{text-align:center;margin-bottom:8px}
+  .rf-eyebrow{font-family:var(--font-b);font-size:0.72rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--terracotta);text-align:center;margin-bottom:14px}
+  .rf-title{font-family:var(--font-d);font-style:italic;font-weight:400;font-size:clamp(1.9rem,4vw,2.6rem);text-align:center;line-height:1.2;margin-bottom:14px}
+  .rf-sub{font-family:var(--font-b);font-size:0.98rem;color:rgba(44,24,16,0.65);text-align:center;max-width:460px;margin:0 auto 56px}
+
+  .rf-section{margin-bottom:44px}
+  .rf-section-label{
+    font-family:var(--font-b);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--terracotta);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(44,24,16,0.12);
+  }
+  .rf-note{font-family:var(--font-b);font-size:0.88rem;color:rgba(44,24,16,0.6);margin-bottom:18px;line-height:1.7}
+
+  .rf-row{display:flex;gap:18px;margin-bottom:16px}
+  .rf-row:last-child{margin-bottom:0}
+  .rf-group{flex:1;display:flex;flex-direction:column;gap:7px}
+  .rf-group label{font-family:var(--font-b);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(44,24,16,0.55)}
+  .rf-group input,.rf-group select,.rf-group textarea{
+    font-family:var(--font-b);font-size:0.98rem;padding:13px 15px;
+    border:1px solid rgba(44,24,16,0.2);border-radius:2px;background:#fff;color:var(--espresso);
+    outline:none;transition:border-color 0.2s;
+  }
+  .rf-group input:focus,.rf-group select:focus,.rf-group textarea:focus{border-color:var(--terracotta)}
+  .rf-group textarea{resize:vertical;min-height:80px;font-family:var(--font-b)}
+
+  .rf-radio-row{display:flex;gap:14px;flex-wrap:wrap}
+  .rf-radio-card{
+    flex:1;min-width:180px;border:1px solid rgba(44,24,16,0.2);border-radius:4px;
+    padding:16px 18px;cursor:pointer;transition:border-color 0.2s,background 0.2s;
+    display:flex;flex-direction:column;gap:4px;
+  }
+  .rf-radio-card:has(input:checked){border-color:var(--terracotta);background:rgba(196,98,45,0.06)}
+  .rf-radio-card input{margin-right:8px}
+  .rf-radio-card .rf-radio-title{font-family:var(--font-b);font-size:0.92rem;font-weight:500;color:var(--espresso)}
+  .rf-radio-card .rf-radio-price{font-family:var(--font-d);font-size:1.2rem;color:var(--terracotta)}
+
+  .rf-checkbox-row{display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid rgba(44,24,16,0.08)}
+  .rf-checkbox-row:last-child{border-bottom:none}
+  .rf-checkbox-row input{margin-top:4px;flex-shrink:0}
+  .rf-checkbox-row .rf-cb-title{font-family:var(--font-b);font-size:0.95rem;color:var(--espresso)}
+  .rf-checkbox-row .rf-cb-price{color:var(--terracotta);font-weight:500}
+  .rf-checkbox-row .rf-cb-note{font-family:var(--font-b);font-size:0.82rem;color:rgba(44,24,16,0.55);margin-top:2px}
+
+  #rf-roommate{display:none;margin-top:18px;padding:18px;background:var(--cream-mid);border-radius:4px}
+  #rf-roommate.visible{display:block}
+
+  .rf-deposit-summary{
+    background:var(--cream-mid);border-radius:4px;padding:20px 22px;margin-bottom:20px;
+  }
+  .rf-deposit-summary p{font-family:var(--font-b);font-size:0.92rem;color:rgba(44,24,16,0.75);line-height:1.7}
+  .rf-deposit-amount{font-family:var(--font-d);font-size:1.6rem;color:var(--terracotta)}
+
+  #rf-bacs-details,#rf-card-note{display:none;margin-top:16px;padding:18px 20px;border:1px solid rgba(44,24,16,0.15);border-radius:4px;font-family:var(--font-b);font-size:0.9rem;line-height:1.8;color:rgba(44,24,16,0.75)}
+  #rf-bacs-details.visible,#rf-card-note.visible{display:block}
+
+  .rf-house-rules{
+    background:var(--espresso);color:var(--cream);padding:32px 28px;border-radius:4px;margin-bottom:20px;
+  }
+  .rf-house-rules p{font-family:var(--font-b);font-size:0.84rem;line-height:1.85;color:rgba(245,239,224,0.82);margin-bottom:16px;letter-spacing:0.01em}
+  .rf-house-rules p:last-child{margin-bottom:0}
+  .rf-house-rules h4{font-family:var(--font-d);font-style:italic;font-size:1.15rem;color:var(--cream);margin-bottom:10px;margin-top:20px}
+  .rf-house-rules h4:first-child{margin-top:0}
+
+  .rf-submit-row{margin-top:12px}
+  .rf-btn{
+    display:block;width:100%;text-align:center;background:var(--terracotta);color:var(--cream);
+    border:none;border-radius:2px;padding:17px;font-family:var(--font-b);font-size:0.8rem;
+    letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;
+  }
+  .rf-btn:hover{background:var(--terra-dark)}
+  .rf-btn:disabled{opacity:0.5;cursor:not-allowed}
+
+  .rf-required-note{font-family:var(--font-b);font-size:0.75rem;color:rgba(44,24,16,0.45);text-align:center;margin-top:14px}
+
+  #rf-success,#rf-error{display:none;text-align:center;margin-top:24px;padding:24px;border-radius:4px}
+  #rf-success{background:rgba(139,157,119,0.15)}
+  #rf-success p{font-family:var(--font-d);font-size:1.1rem;font-style:italic;color:var(--espresso)}
+  #rf-error{background:rgba(196,98,45,0.1)}
+  #rf-error p{font-family:var(--font-b);font-size:0.9rem;color:var(--espresso)}
+  #rf-success.visible,#rf-error.visible{display:block}
+
+  @media(max-width:600px){
+    .rf-row{flex-direction:column;gap:16px}
+    .rf-nav{padding:16px 20px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="rf-nav">
+  <a href="/retreat">&larr; Back to the Retreat</a>
+  <a href="mailto:innamotravel@gmail.com">Need help?</a>
+</nav>
+
+<div class="rf-wrap">
+
+  <img src="/innamo-logo-nav.png" alt="Innamo" class="rf-logo">
+  <p class="rf-eyebrow">Complete Your Registration</p>
+  <h1 class="rf-title">Wine &amp; Wellness Retreat 2027</h1>
+  <p class="rf-sub">8&ndash;15 May 2027 &middot; Villa Cecconi, near Siena. A few details, then you're in.</p>
+
+  <form id="rf-form">
+
+    <!-- PERSONAL DETAILS -->
+    <div class="rf-section">
+      <p class="rf-section-label">Your Details</p>
+      <div class="rf-row">
+        <div class="rf-group">
+          <label for="rf-first">First Name</label>
+          <input id="rf-first" name="firstName" type="text" required>
+        </div>
+        <div class="rf-group">
+          <label for="rf-last">Last Name</label>
+          <input id="rf-last" name="lastName" type="text" required>
+        </div>
+      </div>
+      <div class="rf-row">
+        <div class="rf-group">
+          <label for="rf-address">Address</label>
+          <textarea id="rf-address" name="address" placeholder="Full postal address" required></textarea>
+        </div>
+      </div>
+      <div class="rf-row">
+        <div class="rf-group">
+          <label for="rf-mobile">Mobile</label>
+          <input id="rf-mobile" name="mobile" type="tel" required>
+        </div>
+        <div class="rf-group">
+          <label for="rf-email">Email</label>
+          <input id="rf-email" name="email" type="email" required>
+        </div>
+      </div>
+      <div class="rf-row">
+        <div class="rf-group">
+          <label for="rf-gender">Gender</label>
+          <select id="rf-gender" name="gender" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="F">Female</option>
+            <option value="M">Male</option>
+            <option value="Non-binary">Non-binary</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROOM -->
+    <div class="rf-section">
+      <p class="rf-section-label">Room</p>
+      <div class="rf-radio-row">
+        <label class="rf-radio-card">
+          <input type="radio" name="roomType" value="shared" required>
+          <span class="rf-radio-title">Shared Occupancy</span>
+          <span class="rf-radio-price">&pound;3,850pp</span>
+        </label>
+        <label class="rf-radio-card">
+          <input type="radio" name="roomType" value="single" required>
+          <span class="rf-radio-title">Single Occupancy</span>
+          <span class="rf-radio-price">&pound;4,850</span>
+        </label>
+      </div>
+
+      <div id="rf-roommate">
+        <p class="rf-note" style="margin-bottom:14px">We don't pair guests we don't know with one another, so a shared room only gets confirmed once both people have registered. Please give us your roommate's details below, and let them know to register too if they haven't already.</p>
+        <div class="rf-row">
+          <div class="rf-group">
+            <label for="rf-roommate-name">Roommate's Name</label>
+            <input id="rf-roommate-name" name="roommateName" type="text">
+          </div>
+          <div class="rf-group">
+            <label for="rf-roommate-email">Roommate's Email</label>
+            <input id="rf-roommate-email" name="roommateEmail" type="email">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXTRAS -->
+    <div class="rf-section">
+      <p class="rf-section-label">Optional Extras</p>
+      <div class="rf-checkbox-row">
+        <input type="checkbox" id="rf-pt" name="extraPT">
+        <div>
+          <label for="rf-pt" class="rf-cb-title">1:1 PT Session <span class="rf-cb-price">&mdash; &pound;75</span></label>
+        </div>
+      </div>
+      <div class="rf-checkbox-row">
+        <input type="checkbox" id="rf-nutrition" name="extraNutrition">
+        <div>
+          <label for="rf-nutrition" class="rf-cb-title">Nutritional Consultation <span class="rf-cb-price">&mdash; &pound;75</span></label>
+        </div>
+      </div>
+      <div class="rf-checkbox-row">
+        <input type="checkbox" id="rf-massage" name="extraMassage">
+        <div>
+          <label for="rf-massage" class="rf-cb-title">Massage <span class="rf-cb-price" style="color:var(--sage)">&mdash; Included</span></label>
+          <p class="rf-cb-note">Already included in your retreat fee, we just need you to opt in so we can schedule it.</p>
+        </div>
+      </div>
+      <div class="rf-checkbox-row">
+        <input type="checkbox" id="rf-wine2" name="extraWineTasting">
+        <div>
+          <label for="rf-wine2" class="rf-cb-title">Second Wine Tasting <span class="rf-cb-price">&mdash; &pound;120pp</span></label>
+          <p class="rf-cb-note">An additional charge on top of your retreat fee, we'll invoice separately closer to the date.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIETARY -->
+    <div class="rf-section">
+      <p class="rf-section-label">Dietary Requirements</p>
+      <p class="rf-note">All food at the villa is either vegetarian or pescatarian by default. Let us know below about any allergies or further preferences, and we'll make sure the kitchen has it covered.</p>
+      <div class="rf-row">
+        <div class="rf-group">
+          <textarea id="rf-dietary" name="dietary" placeholder="e.g. gluten-free, no shellfish, nut allergy&hellip; or leave blank if vegetarian/pescatarian is fine as is"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEPOSIT -->
+    <div class="rf-section">
+      <p class="rf-section-label">Securing Your Place</p>
+      <div class="rf-deposit-summary">
+        <p>A 50% deposit secures your place. Based on the room you selected above, your deposit is:</p>
+        <p class="rf-deposit-amount" id="rf-deposit-amount">Select a room above</p>
+      </div>
+      <div class="rf-radio-row">
+        <label class="rf-radio-card">
+          <input type="radio" name="paymentMethod" value="bacs" required>
+          <span class="rf-radio-title">Bank Transfer (BACS)</span>
+        </label>
+        <label class="rf-radio-card">
+          <input type="radio" name="paymentMethod" value="card" required>
+          <span class="rf-radio-title">Card Payment</span>
+          <span class="rf-cb-note" style="font-size:0.78rem;color:rgba(44,24,16,0.5)">3% processing charge applies</span>
+        </label>
+      </div>
+
+      <div id="rf-bacs-details">
+        <strong>Bank transfer details will be included in your confirmation email</strong>, along with a payment reference to use. Please use your full name as the reference so we can match your payment.
+      </div>
+      <div id="rf-card-note">
+        We'll send you a secure card payment link by email within 24 hours, including the 3% processing charge.
+      </div>
+    </div>
+
+    <!-- HOUSE RULES -->
+    <div class="rf-section">
+      <p class="rf-section-label">House Rules</p>
+      <div class="rf-house-rules">
+        <p>If you're considering a week in Tuscany with us, you already know the vibe. Just in case:</p>
+        <p>HerSpace, and our sister studio, BarreFly, are both about feeling happier and healthier in your body and embracing your truest self. We are unapologetically feminist, warmly unpretentious, and we take care seriously, not ourselves. Luxury is a privilege, and we approach it with gratitude.</p>
+
+        <h4>Inclusion &amp; Respect</h4>
+        <p>We welcome all races, sexualities, gender expressions, and body types. Kindness is non-negotiable. Disrespect, towards yourself or others, has no place here. If behaviour disrupts the experience and doesn't improve when asked, we may invite you to depart; no refund will be due.</p>
+
+        <h4>Grace &amp; Goodwill</h4>
+        <p>We'll do everything in our power to give you an exceptional week. In the unlikely event something goes awry, we ask for grace while we make it right. Our team is small, meticulous, and deeply committed to your experience. And Nesse's love of Italy is infectious. There is nothing that she wants more than to make you fall in love as well. We promise, you'll feel it, even if something goes (briefly) pear-shaped.</p>
+      </div>
+      <div class="rf-checkbox-row">
+        <input type="checkbox" id="rf-house-rules-ack" name="houseRulesAck" required>
+        <div>
+          <label for="rf-house-rules-ack" class="rf-cb-title">I have read and understood the House Rules above.</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="rf-submit-row">
+      <button type="submit" class="rf-btn" id="rf-submit-btn">Complete Registration</button>
+      <p class="rf-required-note">By submitting, you agree to our <a href="/retreat/terms" style="color:var(--terracotta)">Terms &amp; Conditions</a>. Your deposit is non-refundable once confirmed.</p>
+    </div>
+
+    <div id="rf-success"><p>Thank you &mdash; your registration is in. We'll be in touch within 24 hours to confirm your place and take payment.</p></div>
+    <div id="rf-error"><p>Something went wrong. Please email us directly at <a href="mailto:innamotravel@gmail.com" style="color:var(--terracotta)">innamotravel@gmail.com</a> and we'll sort it by hand.</p></div>
+
+  </form>
+
+</div>
+
+<script>
+  const roomRadios = document.querySelectorAll('input[name="roomType"]');
+  const roommateBlock = document.getElementById('rf-roommate');
+  const roommateName = document.getElementById('rf-roommate-name');
+  const roommateEmail = document.getElementById('rf-roommate-email');
+  const depositAmountEl = document.getElementById('rf-deposit-amount');
+
+  const DEPOSITS = { shared: '£1,925', single: '£2,425' };
+
+  function updateRoomUI(){
+    const selected = document.querySelector('input[name="roomType"]:checked');
+    if(!selected){
+      depositAmountEl.textContent = 'Select a room above';
+      roommateBlock.classList.remove('visible');
+      roommateName.required = false;
+      roommateEmail.required = false;
+      return;
+    }
+    depositAmountEl.textContent = DEPOSITS[selected.value] + ' deposit due';
+    if(selected.value === 'shared'){
+      roommateBlock.classList.add('visible');
+      roommateName.required = true;
+      roommateEmail.required = true;
+    } else {
+      roommateBlock.classList.remove('visible');
+      roommateName.required = false;
+      roommateEmail.required = false;
+    }
+  }
+  roomRadios.forEach(r => r.addEventListener('change', updateRoomUI));
+
+  const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
+  const bacsDetails = document.getElementById('rf-bacs-details');
+  const cardNote = document.getElementById('rf-card-note');
+  function updatePaymentUI(){
+    const selected = document.querySelector('input[name="paymentMethod"]:checked');
+    bacsDetails.classList.toggle('visible', selected && selected.value === 'bacs');
+    cardNote.classList.toggle('visible', selected && selected.value === 'card');
+  }
+  paymentRadios.forEach(r => r.addEventListener('change', updatePaymentUI));
+
+  document.getElementById('rf-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('rf-submit-btn');
+    const successEl = document.getElementById('rf-success');
+    const errorEl = document.getElementById('rf-error');
+    successEl.classList.remove('visible');
+    errorEl.classList.remove('visible');
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+
+    const form = e.target;
+    const data = {
+      firstName: form.firstName.value,
+      lastName: form.lastName.value,
+      address: form.address.value,
+      mobile: form.mobile.value,
+      email: form.email.value,
+      gender: form.gender.value,
+      roomType: form.roomType.value,
+      roommateName: form.roommateName.value || null,
+      roommateEmail: form.roommateEmail.value || null,
+      extraPT: form.extraPT.checked,
+      extraNutrition: form.extraNutrition.checked,
+      extraMassage: form.extraMassage.checked,
+      extraWineTasting: form.extraWineTasting.checked,
+      dietary: form.dietary.value || null,
+      paymentMethod: form.paymentMethod.value,
+      houseRulesAck: form.houseRulesAck.checked,
+    };
+
+    try {
+      const res = await fetch('/api/register-retreat-details', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if(!res.ok) throw new Error('Request failed');
+      form.style.display = 'none';
+      successEl.classList.add('visible');
+    } catch(err) {
+      errorEl.classList.add('visible');
+      btn.disabled = false;
+      btn.textContent = 'Complete Registration';
+    }
+  });
+</script>
+
+</body>
+</html>

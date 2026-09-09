@@ -71,6 +71,10 @@
     {
       "source": "/retreat/terms",
       "destination": "/retreat-terms.html"
+    },
+    {
+      "source": "/retreat/register",
+      "destination": "/retreat-registration.html"
     }
   ]
 }
