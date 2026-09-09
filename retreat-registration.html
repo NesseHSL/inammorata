@@ -260,6 +260,18 @@
       </div>
     </div>
 
+    <!-- EXTEND YOUR TRIP -->
+    <div class="rf-section">
+      <p class="rf-section-label">Extend Your Trip</p>
+      <p class="rf-note">Our retreat runs Sunday to Friday, the perfect excuse to arrive a few days early or stay on for an extra weekend in Tuscany. Innamo is a travel consultancy in its own right, and we work in partnership with some of the best hotels, villas, and wineries across Italy. Tick the box below and we'll be in touch separately to help you plan the perfect extension to your best week of 2027.</p>
+      <div class="rf-checkbox-row">
+        <input type="checkbox" id="rf-extend-trip" name="extendTrip">
+        <div>
+          <label for="rf-extend-trip" class="rf-cb-title">Yes, I'd like Innamo's help extending my stay in Italy</label>
+        </div>
+      </div>
+    </div>
+
     <!-- DIETARY -->
     <div class="rf-section">
       <p class="rf-section-label">Dietary Requirements</p>
@@ -432,6 +444,7 @@
       extraNutrition: form.extraNutrition.checked,
       extraMassage: form.extraMassage.checked,
       extraWineTasting: form.extraWineTasting.checked,
+      extendTrip: form.extendTrip.checked,
       dietary: form.dietary.value || null,
       health: form.health.value || null,
       paymentMethod: form.paymentMethod.value,

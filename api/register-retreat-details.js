@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   const {
     firstName, lastName, address, mobile, email, gender, source,
     roomType, roommateName, roommateEmail,
-    extraPT, extraNutrition, extraMassage, extraWineTasting,
+    extraPT, extraNutrition, extraMassage, extraWineTasting, extendTrip,
     dietary, health, paymentMethod, houseRulesAck,
   } = req.body;
 
@@ -51,7 +51,7 @@ export default async function handler(req, res) {
   await saveBooking({
     firstName, lastName, address, mobile, email, gender, source,
     roomType, roommateName, roommateEmail,
-    extraPT, extraNutrition, extraMassage, extraWineTasting,
+    extraPT, extraNutrition, extraMassage, extraWineTasting, extendTrip,
     dietary, health, paymentMethod, houseRulesAck,
   });
 
@@ -100,6 +100,7 @@ export default async function handler(req, res) {
               ${extras.length ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Extras:</strong> ${extras.join(', ')}</p>` : ''}
               ${dietary ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Dietary notes:</strong> ${dietary}</p>` : ''}
               ${health ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Health/movement notes:</strong> ${health}</p>` : ''}
+              ${extendTrip ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;">We'll also be in touch separately about extending your stay in Italy before or after the retreat.</p>` : ''}
               ${paymentBlock}
 
               <p style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:rgba(44,24,16,0.82);margin:24px 0 0;">
@@ -168,6 +169,7 @@ export default async function handler(req, res) {
               ${extras.length ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Extras:</strong> ${extras.join(', ')}</p>` : ''}
               ${dietary ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Dietary:</strong> ${dietary}</p>` : ''}
               ${health ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Health/movement:</strong> ${health}</p>` : ''}
+              ${extendTrip ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#C4622D;margin:0 0 6px;"><strong>Wants to extend their trip!</strong> Follow up about pre/post retreat stays.</p>` : ''}
               <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0;"><strong>Payment method:</strong> ${paymentMethod === 'bacs' ? 'Bank transfer (BACS), send them the account details and reference' : 'Card, send them a secure payment link (+3%)'}</p>
             </td>
           </tr>
@@ -227,6 +229,7 @@ async function saveBooking(fields) {
         extra_nutrition:    !!fields.extraNutrition,
         extra_massage:      !!fields.extraMassage,
         extra_wine_tasting: !!fields.extraWineTasting,
+        extend_trip:        !!fields.extendTrip,
         dietary:            fields.dietary || null,
         health:             fields.health || null,
         payment_method:     fields.paymentMethod,

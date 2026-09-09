@@ -21,6 +21,7 @@ create table if not exists innamo_retreat_bookings (
   extra_nutrition   boolean not null default false,
   extra_massage     boolean not null default false,
   extra_wine_tasting boolean not null default false,
+  extend_trip       boolean not null default false,
   dietary           text,
   health            text,                        -- health/movement notes
   payment_method    text not null,               -- 'bacs' | 'card'
