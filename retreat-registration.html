@@ -309,7 +309,7 @@
         Please use your full name as the payment reference, so we can match your transfer.
       </div>
       <div id="rf-card-note">
-        <span id="rf-card-link-area">Select a room above to see your payment link.</span>
+        <span id="rf-card-link-area">We'll send you a secure card payment link by email within 24 hours, including the 3% processing charge.</span>
       </div>
     </div>
 
@@ -356,13 +356,6 @@
 
   const DEPOSITS = { shared: '£1,925', single: '£2,425' };
 
-  // Fixed-amount payment links, one per room type, since the deposit
-  // differs by room. Single occupancy's link is still pending from Hillary.
-  const CARD_LINKS = {
-    shared: 'https://pay.tide.co/b8d39e53-fb7f-4a23-93c0-0e233f1947a3',
-    single: null,
-  };
-
   function updateRoomUI(){
     const selected = document.querySelector('input[name="roomType"]:checked');
     if(!selected){
@@ -408,16 +401,7 @@
     cardNote.classList.toggle('visible', paymentSelected && paymentSelected.value === 'card');
 
     if(paymentSelected && paymentSelected.value === 'card'){
-      if(!roomSelected){
-        cardLinkArea.textContent = 'Select a room above to see your payment link.';
-      } else {
-        const link = CARD_LINKS[roomSelected.value];
-        if(link){
-          cardLinkArea.innerHTML = `Pay your ${DEPOSITS[roomSelected.value]} deposit securely by card: <a href="${link}" target="_blank" rel="noopener" style="color:var(--terracotta);font-weight:500">Pay now &rarr;</a>`;
-        } else {
-          cardLinkArea.textContent = "We'll send you a secure card payment link by email within 24 hours, including the 3% processing charge.";
-        }
-      }
+      cardLinkArea.textContent = "We'll send you a secure card payment link by email within 24 hours, including the 3% processing charge.";
     }
   }
   paymentRadios.forEach(r => r.addEventListener('change', updatePaymentUI));
