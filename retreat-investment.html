@@ -117,7 +117,9 @@
     .reg-submit .btn { border: none; cursor: pointer; font-size: 0.72rem; }
     .reg-note { font-family: var(--font-b); font-size: 0.72rem; color: rgba(44,24,16,0.45); text-align: center; margin-top: 14px; }
     #reg-success, #reg-error { display: none; text-align: center; padding: 20px 0 0; }
-    #reg-success p { font-family: var(--font-d); font-size: 1.1rem; font-style: italic; color: var(--espresso); }
+    #reg-success { background: var(--cream-mid); border-radius: 4px; padding: 32px 28px; }
+    #reg-success .reg-success-title { font-family: var(--font-d); font-size: 1.3rem; font-style: italic; color: var(--espresso); margin-bottom: 14px; }
+    #reg-success p { font-family: var(--font-b); font-size: 0.95rem; line-height: 1.7; color: rgba(44,24,16,0.75); }
     #reg-error p { font-family: var(--font-b); font-size: 0.9rem; color: rgba(44,24,16,0.7); }
     @media (max-width: 600px) { .reg-row { flex-direction: column; gap: 20px; } }
 
@@ -288,7 +290,11 @@
         <button type="submit" class="btn" id="register-btn">Register Your Place</button>
       </div>
       <p class="reg-note">A 50% non-refundable deposit secures your place once we&rsquo;re in touch. By registering, you agree to our <a href="/retreat/terms" style="color:var(--terracotta);">Terms &amp; Conditions</a>.</p>
-      <div id="reg-success"><p>Thank you &mdash; we&rsquo;ll be in touch within 48 hours.</p></div>
+      <div id="reg-success">
+        <p class="reg-success-title">Thank you for registering your interest.</p>
+        <p>We'll be in touch within 24 hours. In the meantime, please add innamotravel@gmail.com to your safe senders list, or be sure to check your junk mail for emails from us.</p>
+        <p style="margin-top:10px">Thanks again, and see you in Italy!</p>
+      </div>
       <div id="reg-error"><p>Something went wrong. Please email us directly at <a href="mailto:innamotravel@gmail.com" style="color:var(--terracotta);">innamotravel@gmail.com</a></p></div>
     </form>
   </section>
