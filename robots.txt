@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /merilee
+
+Sitemap: https://www.innamo.travel/sitemap.xml
