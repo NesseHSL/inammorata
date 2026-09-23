@@ -92,7 +92,7 @@ export default async function handler(req, res) {
                 Dear ${firstName},
               </p>
               <p style="font-family:Georgia,serif;font-size:16px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 20px;">
-                Thank you for completing your registration for the Wine &amp; Wellness Retreat, 8&ndash;15 May 2027 at Villa Cecconi, near Siena. We'll be in touch within 24 hours to confirm your place.
+                Thank you for completing your registration for the Wine &amp; Wellness Retreat, 9&ndash;14 May 2027 at Villa Cecconi, near Siena. We'll be in touch within 24 hours to confirm your place.
               </p>
 
               <p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Room:</strong> ${roomLabel}, £${deposit} deposit due</p>
