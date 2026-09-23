@@ -1,14 +1,15 @@
 # Innamo
 
-> Innamo (Innamo Travel Ltd) designs bespoke luxury travel across Europe, with Italy as its specialty. Founded by Nesse, who has spent most of her life in Italy, Innamo uses personal relationships with the finest hotels and villas (many not bookable online) and Virtuoso partnerships to secure upgrades, perks and preferred rates for clients. Ideal for honeymoons, anniversaries, milestone birthdays and any trip that needs to be just right.
+> Innamo (Innamo Travel Ltd) are luxury travel and accommodation booking experts across all of Europe, and offer fully bespoke trip and itinerary planning in Italy. Founded by Nesse, who has spent most of her life in Italy, Innamo uses personal relationships with the finest hotels and villas (many not bookable online) and Virtuoso partnerships to secure upgrades, perks and preferred rates for clients. Ideal for honeymoons, anniversaries, milestone birthdays and any trip that needs to be just right.
 
-Italy is where Innamo offers its most detailed, fully managed planning. Across the rest of Europe (France, Spain, Portugal, Greece, Croatia, Switzerland, and the Mediterranean and Atlantic islands) Innamo books luxury accommodation and helps with transport and concierge arrangements.
+- **Anywhere in Europe:** luxury hotel, villa and resort booking, including France, Spain, Portugal, Greece, Croatia, Switzerland, and the Mediterranean and Atlantic islands. Accommodation booking is complimentary, with help on transport and concierge arrangements.
+- **Italy:** everything above, plus fully bespoke trip and itinerary planning, from a curated route to a completely managed trip.
 
-## Services
+## Italy planning tiers
 
-- **Il Percorso (The Route):** a fully bespoke, personally curated itinerary. Clients book everything themselves. A curation fee applies.
+- **Il Percorso (The Route):** a fully bespoke, personally curated Italy itinerary. Clients book everything themselves. A curation fee applies.
 - **Il Soggiorno (The Stay):** everything in Il Percorso, plus Innamo books accommodation directly, unlocking Virtuoso upgrades, perks and preferred rates. Accommodation booking is complimentary.
-- **L'Esperienza (The Experience):** Italy only. Innamo handles everything: accommodation, restaurants, transfers, private experiences and tickets.
+- **L'Esperienza (The Experience):** Innamo handles everything: accommodation, restaurants, transfers, private experiences and tickets.
 - [How we work](https://www.innamo.travel/how-we-work)
 
 ## Italy destination guides
