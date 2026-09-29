@@ -75,6 +75,10 @@
     {
       "source": "/retreat/register",
       "destination": "/retreat-registration.html"
+    },
+    {
+      "source": "/london",
+      "destination": "/london.html"
     }
   ]
 }

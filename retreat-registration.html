@@ -192,6 +192,7 @@
             <option value="Innamo.Travel">Innamo.Travel</option>
             <option value="Local WhatsApp group">Local WhatsApp group</option>
             <option value="Friend or referral">Friend or referral</option>
+            <option value="London House magazine">London House magazine</option>
             <option value="Other">Other</option>
           </select>
         </div>
@@ -401,6 +402,10 @@
   roomRadios.forEach(r => r.addEventListener('change', updateRoomUI));
 
   const sourceSelect = document.getElementById('rf-source');
+  try {
+    const campaign = sessionStorage.getItem('innamoCampaign');
+    if (campaign && [...sourceSelect.options].some(o => o.value === campaign)) sourceSelect.value = campaign;
+  } catch (e) {}
   const sourceOtherRow = document.getElementById('rf-source-other-row');
   const sourceOtherInput = document.getElementById('rf-source-other');
   sourceSelect.addEventListener('change', () => {
