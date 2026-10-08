@@ -80,5 +80,17 @@
       "source": "/london",
       "destination": "/london.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/sicily",
+      "destination": "/#enquire",
+      "permanent": false
+    },
+    {
+      "source": "/sardinia",
+      "destination": "/#enquire",
+      "permanent": false
+    }
   ]
 }
