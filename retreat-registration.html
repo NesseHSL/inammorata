@@ -213,11 +213,13 @@
           <input type="radio" name="roomType" value="shared" required>
           <span class="rf-radio-title">Shared Occupancy</span>
           <span class="rf-radio-price">&pound;3,850pp</span>
+          <span class="rf-cb-note rf-early-price" style="font-size:0.8rem;color:var(--terracotta)">&pound;3,465 if you book by 30 November</span>
         </label>
         <label class="rf-radio-card">
           <input type="radio" name="roomType" value="single" required>
           <span class="rf-radio-title">Single Occupancy</span>
           <span class="rf-radio-price">&pound;4,850</span>
+          <span class="rf-cb-note rf-early-price" style="font-size:0.8rem;color:var(--terracotta)">&pound;4,365 if you book by 30 November</span>
         </label>
       </div>
 
@@ -305,8 +307,23 @@
     <div class="rf-section">
       <p class="rf-section-label">Securing Your Place</p>
       <div class="rf-deposit-summary">
-        <p>A 50% deposit secures your place. Select your room above to see your exact deposit amount below.</p>
+        <p id="rf-early-banner"><strong>Book by 30 November and save 10%</strong>, whether you pay a deposit or in full. Pay in full by 30 November and your Castello di Ama wine tasting is on us too.</p>
       </div>
+      <p class="rf-note" style="margin-bottom:10px">How would you like to pay?</p>
+      <div class="rf-radio-row" style="margin-bottom:18px">
+        <label class="rf-radio-card">
+          <input type="radio" name="paymentPlan" value="instalments" required>
+          <span class="rf-radio-title">Deposit + Instalments</span>
+          <span class="rf-cb-note" style="font-size:0.8rem;color:rgba(44,24,16,0.6)">40% now (non-refundable), 30% by 15 Feb, 30% by 30 Mar</span>
+        </label>
+        <label class="rf-radio-card">
+          <input type="radio" name="paymentPlan" value="full" required>
+          <span class="rf-radio-title">Pay in Full</span>
+          <span class="rf-cb-note rf-full-perk" style="font-size:0.8rem;color:rgba(44,24,16,0.6)">By 30 Nov: 10% off plus a free Castello di Ama tasting</span>
+        </label>
+      </div>
+      <div class="rf-deposit-summary" id="rf-schedule" style="display:none"></div>
+      <p class="rf-note" style="margin-bottom:10px">Payment method</p>
       <div class="rf-radio-row">
         <label class="rf-radio-card">
           <input type="radio" name="paymentMethod" value="bacs" required>
@@ -330,7 +347,7 @@
       <div id="rf-card-note">
         <span id="rf-card-link-area">We'll send you a secure card payment link by email within 24 hours, including the 3% processing charge.</span>
       </div>
-      <p class="rf-note" style="margin-top:16px">The final 50% of your retreat fee, plus any optional extras, is due 6 weeks before the retreat date.</p>
+      <p class="rf-note" style="margin-top:16px">Optional extras are invoiced separately, closer to the date.</p>
     </div>
 
     <!-- HOUSE RULES -->
@@ -374,19 +391,57 @@
   const bacsAmountEl = document.getElementById('rf-bacs-amount');
   const cardAmountEl = document.getElementById('rf-card-amount');
 
-  const DEPOSITS = { shared: '£1,925', single: '£2,425' };
+  // Keep in sync with api/register-retreat-details.js
+  const PRICES = { shared: 3850, single: 4850 };
+  const EARLY_BIRD_ENDS = new Date('2026-12-01T00:00:00Z'); // end of 30 Nov 2026, London time
+  const isEarlyBird = () => new Date() < EARLY_BIRD_ENDS;
+  const gbp = n => '£' + n.toLocaleString('en-GB', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
+  function quote(room, plan){
+    const early = isEarlyBird();
+    const total = early ? PRICES[room] * 0.9 : PRICES[room];
+    if(plan === 'full') return { early, total, dueNow: total };
+    const deposit = Math.round(total * 40) / 100;
+    const instalment = Math.round(total * 30) / 100;
+    return { early, total, dueNow: deposit, instalment };
+  }
+  if(!isEarlyBird()){
+    document.querySelectorAll('.rf-early-price').forEach(el => el.style.display = 'none');
+    document.getElementById('rf-early-banner').textContent = 'Choose to pay a 40% deposit followed by two instalments, or pay in full.';
+    document.querySelector('.rf-full-perk').textContent = 'Pay the full retreat fee now';
+  }
+  const scheduleEl = document.getElementById('rf-schedule');
+  function updateAmounts(){
+    const room = document.querySelector('input[name="roomType"]:checked');
+    const plan = document.querySelector('input[name="paymentPlan"]:checked');
+    if(!room || !plan){
+      scheduleEl.style.display = 'none';
+      const msg = !room ? 'Select a room above' : 'Choose how to pay above';
+      bacsAmountEl.textContent = msg;
+      cardAmountEl.textContent = msg;
+      return;
+    }
+    const q = quote(room.value, plan.value);
+    const label = plan.value === 'full' ? ' due now, in full' : ' deposit due';
+    bacsAmountEl.textContent = gbp(q.dueNow) + label;
+    cardAmountEl.textContent = gbp(q.dueNow) + label;
+    let html = '<p>Your retreat fee: <span class="rf-deposit-amount">' + gbp(q.total) + '</span>' + (q.early ? ' (10% early booking saving included)' : '') + '</p>';
+    if(plan.value === 'full'){
+      html += '<p>Paid in full now' + (q.early ? ', and your Castello di Ama wine tasting is on us.' : '.') + '</p>';
+    } else {
+      html += '<p>' + gbp(q.dueNow) + ' deposit now (non-refundable)<br>' + gbp(q.instalment) + ' by 15 February 2027<br>' + gbp(q.instalment) + ' by 30 March 2027</p>';
+    }
+    scheduleEl.innerHTML = html;
+    scheduleEl.style.display = 'block';
+  }
+  document.querySelectorAll('input[name="paymentPlan"]').forEach(r => r.addEventListener('change', updateAmounts));
 
   function updateRoomUI(){
     const selected = document.querySelector('input[name="roomType"]:checked');
     if(!selected){
-      bacsAmountEl.textContent = 'Select a room above';
-      cardAmountEl.textContent = 'Select a room above';
       roommateBlock.classList.remove('visible');
       roommateName.required = false;
       roommateEmail.required = false;
     } else {
-      bacsAmountEl.textContent = DEPOSITS[selected.value] + ' deposit due';
-      cardAmountEl.textContent = DEPOSITS[selected.value] + ' deposit due';
       if(selected.value === 'shared'){
         roommateBlock.classList.add('visible');
         roommateName.required = true;
@@ -397,6 +452,7 @@
         roommateEmail.required = false;
       }
     }
+    updateAmounts();
     updatePaymentUI();
   }
   roomRadios.forEach(r => r.addEventListener('change', updateRoomUI));
@@ -460,6 +516,7 @@
       dietary: form.dietary.value || null,
       health: form.health.value || null,
       paymentMethod: form.paymentMethod.value,
+      paymentPlan: form.paymentPlan.value,
       houseRulesAck: form.houseRulesAck.checked,
     };
 

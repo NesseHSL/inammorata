@@ -85,6 +85,20 @@
     .price-card-note { font-family: var(--font-b); font-size: 0.88rem; color: rgba(44,24,16,0.55); }
     .deposit-note { text-align: center; font-family: var(--font-b); font-size: 0.85rem; letter-spacing: 0.08em; color: rgba(44,24,16,0.55); margin: 28px 0 80px; }
     .deposit-note strong { color: var(--espresso); }
+    .price-card-early { font-family: var(--font-b); font-size: 0.85rem; color: var(--terracotta); margin-top: 10px; }
+    .pay-section { max-width: 960px; margin: 0 auto 80px; padding: 0 24px; }
+    .pay-early { text-align: center; background: var(--espresso); color: var(--cream); padding: 28px 24px; border-radius: 4px; margin-bottom: 28px; }
+    .pay-early p { font-family: var(--font-b); font-size: 0.98rem; line-height: 1.7; }
+    .pay-early .pay-early-title { font-family: var(--font-d); font-size: 1.6rem; font-style: italic; margin-bottom: 6px; }
+    .pay-options { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .pay-option { border: 1px solid rgba(44,24,16,0.15); border-radius: 4px; padding: 28px 26px; }
+    .pay-option-title { font-family: var(--font-d); font-size: 1.5rem; color: var(--espresso); margin-bottom: 14px; }
+    .pay-option ul { list-style: none; padding: 0; margin: 0; }
+    .pay-option li { font-family: var(--font-b); font-size: 0.95rem; line-height: 1.7; color: rgba(44,24,16,0.75); padding: 8px 0; border-top: 1px solid rgba(44,24,16,0.08); }
+    .pay-option li:first-child { border-top: none; }
+    .pay-option li strong { color: var(--espresso); }
+    .pay-option-note { font-family: var(--font-b); font-size: 0.85rem; color: rgba(44,24,16,0.55); margin-top: 14px; }
+    @media (max-width: 720px) { .pay-options { grid-template-columns: 1fr; } }
 
     /* INCLUDED / NOT INCLUDED */
     .incl-section { max-width: 780px; margin: 0 auto; padding: 0 40px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
@@ -206,14 +220,46 @@
         <p class="price-card-label">Single Occupancy</p>
         <p class="price-card-amount">&pound;4,850</p>
         <p class="price-card-note">Your own private room</p>
+        <p class="price-card-early">&pound;4,365 if you book by 30 November</p>
       </div>
       <div class="price-card fade-up d1">
         <p class="price-card-label">Shared Occupancy</p>
         <p class="price-card-amount">&pound;3,850</p>
         <p class="price-card-note">First-come, first-served, book soon to share</p>
+        <p class="price-card-early">&pound;3,465 if you book by 30 November</p>
       </div>
     </div>
-    <p class="deposit-note fade-up d2">Prices include VAT. <strong>50% non-refundable deposit</strong> due at booking.</p>
+    <p class="deposit-note fade-up d2">Prices include VAT.</p>
+  </div>
+
+  <!-- WAYS TO PAY -->
+  <div class="pay-section">
+    <p class="sp-eyebrow fade-up" style="text-align:center;">Ways to Pay</p>
+    <h2 class="sp-title fade-up d1" style="text-align:center;">Two ways to secure your place.</h2>
+    <div class="pay-early fade-up">
+      <p class="pay-early-title">Book by 30 November, save 10%.</p>
+      <p>Book before 30 November 2026, with a deposit or in full, and your retreat is 10% off. Pay in full by 30 November and your second wine tasting, at Castello di Ama, is on us too.</p>
+    </div>
+    <div class="pay-options">
+      <div class="pay-option fade-up">
+        <p class="pay-option-title">Pay in instalments</p>
+        <ul>
+          <li><strong>40% deposit</strong> at booking, non-refundable</li>
+          <li><strong>30%</strong> by 15 February 2027</li>
+          <li><strong>30%</strong> by 30 March 2027</li>
+        </ul>
+        <p class="pay-option-note">Book by 30 November and each payment is based on the 10% reduced price.</p>
+      </div>
+      <div class="pay-option fade-up d1">
+        <p class="pay-option-title">Pay in full</p>
+        <ul>
+          <li><strong>10% off</strong> when you pay in full by 30 November 2026</li>
+          <li><strong>A free wine tasting at Castello di Ama</strong>, normally &pound;120pp, on us</li>
+          <li>Nothing more to think about until May</li>
+        </ul>
+        <p class="pay-option-note">Shared &pound;3,465 &middot; Single &pound;4,365 when paid in full by 30 November.</p>
+      </div>
+    </div>
   </div>
 
   <!-- INCLUDED / NOT -->
@@ -280,8 +326,8 @@
           <label for="r-room">Room Preference</label>
           <select id="r-room" name="room">
             <option value="" disabled selected>Select an option</option>
-            <option>Single occupancy: &pound;4,850</option>
-            <option>Shared occupancy: &pound;3,850</option>
+            <option>Single occupancy: &pound;4,850 (&pound;4,365 by 30 Nov)</option>
+            <option>Shared occupancy: &pound;3,850 (&pound;3,465 by 30 Nov)</option>
             <option>Not sure yet</option>
           </select>
         </div>
@@ -295,7 +341,7 @@
       <div class="reg-submit">
         <button type="submit" class="btn" id="register-btn">Register Your Place</button>
       </div>
-      <p class="reg-note">A 50% non-refundable deposit secures your place once we&rsquo;re in touch. By registering, you agree to our <a href="/retreat/terms" style="color:var(--terracotta);">Terms &amp; Conditions</a>.</p>
+      <p class="reg-note">A 40% non-refundable deposit, or payment in full, secures your place once we&rsquo;re in touch. By registering, you agree to our <a href="/retreat/terms" style="color:var(--terracotta);">Terms &amp; Conditions</a>.</p>
       <div id="reg-success">
         <p class="reg-success-title">Thank you for registering your interest.</p>
         <p>We'll be in touch within 24 hours. In the meantime, please add innamotravel@gmail.com to your safe senders list, or be sure to check your junk mail for emails from us.</p>

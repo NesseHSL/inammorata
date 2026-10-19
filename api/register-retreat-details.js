@@ -10,7 +10,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const DEPOSITS = { shared: 1925, single: 2425 };
+// Keep in sync with retreat-registration.html
+const PRICES = { shared: 3850, single: 4850 };
+const EARLY_BIRD_ENDS = new Date('2026-12-01T00:00:00Z'); // end of 30 Nov 2026, London time
+const gbp = n => n.toLocaleString('en-GB', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
 const ROOM_LABELS = { shared: 'Shared Occupancy', single: 'Single Occupancy' };
 
 export default async function handler(req, res) {
@@ -22,10 +25,10 @@ export default async function handler(req, res) {
     firstName, lastName, address, mobile, email, gender, source,
     roomType, roommateName, roommateEmail,
     extraPT, extraNutrition, extraMassage, extraWineTasting, extendTrip,
-    dietary, health, paymentMethod, houseRulesAck,
+    dietary, health, paymentMethod, paymentPlan, houseRulesAck,
   } = req.body;
 
-  if (!firstName || !lastName || !address || !mobile || !email || !gender || !source || !roomType || !paymentMethod) {
+  if (!firstName || !lastName || !address || !mobile || !email || !gender || !source || !PRICES[roomType] || !paymentMethod) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
   if (roomType === 'shared' && (!roommateName || !roommateEmail)) {
@@ -36,14 +39,23 @@ export default async function handler(req, res) {
   }
 
   const fullName = `${firstName} ${lastName}`;
-  const deposit = DEPOSITS[roomType];
   const roomLabel = ROOM_LABELS[roomType] || roomType;
+  const payInFull = paymentPlan === 'full';
+  const earlyBird = new Date() < EARLY_BIRD_ENDS;
+  const total = earlyBird ? PRICES[roomType] * 0.9 : PRICES[roomType];
+  const deposit = Math.round(total * 40) / 100;
+  const instalment = Math.round(total * 30) / 100;
+  const freeAmaTasting = payInFull && earlyBird;
+  const feeLine = `£${gbp(total)}${earlyBird ? ' (10% early booking discount applied)' : ''}`;
+  const scheduleLine = payInFull
+    ? `Paid in full: £${gbp(total)} due now${freeAmaTasting ? ', plus a complimentary wine tasting at Castello di Ama' : ''}`
+    : `£${gbp(deposit)} non-refundable deposit now, £${gbp(instalment)} by 15 February 2027, £${gbp(instalment)} by 30 March 2027`;
 
   const extras = [];
   if (extraPT) extras.push('1:1 PT Session (£75)');
   if (extraNutrition) extras.push('Nutritional Consultation (£75)');
   if (extraMassage) extras.push('Massage (included, opted in)');
-  if (extraWineTasting) extras.push('Second Wine Tasting (£120pp)');
+  if (extraWineTasting && !freeAmaTasting) extras.push('Second Wine Tasting (£120pp)');
 
   // Log the full booking independently of whether the emails below
   // succeed - this is the only backup record of a submission, so a Gmail
@@ -95,7 +107,8 @@ export default async function handler(req, res) {
                 Thank you for completing your registration for the Wine &amp; Wellness Retreat, 9&ndash;14 May 2027 at Villa Cecconi, near Siena. We'll be in touch within 24 hours to confirm your place.
               </p>
 
-              <p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Room:</strong> ${roomLabel}, £${deposit} deposit due</p>
+              <p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Room:</strong> ${roomLabel}, ${feeLine}</p>
+              <p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Payment plan:</strong> ${scheduleLine}</p>
               ${roomType === 'shared' ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Rooming with:</strong> ${roommateName}</p>` : ''}
               ${extras.length ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Extras:</strong> ${extras.join(', ')}</p>` : ''}
               ${dietary ? `<p style="font-family:Georgia,serif;font-size:15px;line-height:1.8;color:rgba(44,24,16,0.82);margin:0 0 8px;"><strong style="color:#2C1810;">Dietary notes:</strong> ${dietary}</p>` : ''}
@@ -164,7 +177,8 @@ export default async function handler(req, res) {
               <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Address:</strong> ${address}</p>
               <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Gender:</strong> ${gender}</p>
               <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Heard about us via:</strong> ${source}</p>
-              <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Room:</strong> ${roomLabel}, £${deposit} deposit due</p>
+              <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Room:</strong> ${roomLabel}, ${feeLine}</p>
+              <p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:${freeAmaTasting ? '#C4622D' : '#2C1810'};margin:0 0 6px;"><strong>Payment plan:</strong> ${scheduleLine}</p>
               ${roomType === 'shared' ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Roommate:</strong> ${roommateName} (${roommateEmail})</p>` : ''}
               ${extras.length ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Extras:</strong> ${extras.join(', ')}</p>` : ''}
               ${dietary ? `<p style="font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#2C1810;margin:0 0 6px;"><strong>Dietary:</strong> ${dietary}</p>` : ''}
