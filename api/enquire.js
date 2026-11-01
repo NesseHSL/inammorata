@@ -15,7 +15,11 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, dates, destination, tier, dream } = req.body;
+  const esc = (v) => String(v ?? '').trim().slice(0, 4000)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const body = req.body || {};
+  const [name, email, dates, destination, tier, dream] =
+    ['name', 'email', 'dates', 'destination', 'tier', 'dream'].map((k) => esc(body[k]));
 
   if (!name || !email) {
     return res.status(400).json({ error: 'Name and email are required' });
@@ -87,7 +91,7 @@ export default async function handler(req, res) {
               <p style="font-family:Georgia,serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(44,24,16,0.45);margin:0 0 16px;">Founder, Innamo</p>
               <p style="font-family:Georgia,serif;font-size:12px;color:rgba(44,24,16,0.4);margin:0;">
                 <a href="https://innamo.travel" style="color:#C4622D;text-decoration:none;">innamo.travel</a> &nbsp;&middot;&nbsp;
-                <a href="mailto:innamotravel@gmail.com" style="color:rgba(44,24,16,0.4);text-decoration:none;">innamotravel@gmail.com</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/447847490049" style="color:rgba(44,24,16,0.4);text-decoration:none;">WhatsApp</a>
+                <a href="mailto:innamotravel@gmail.com" style="color:rgba(44,24,16,0.4);text-decoration:none;">innamotravel@gmail.com</a> &nbsp;&middot;&nbsp; <a href="https://wa.me/447874490049" style="color:rgba(44,24,16,0.4);text-decoration:none;">WhatsApp</a>
               </p>
             </td>
           </tr>
@@ -158,7 +162,7 @@ export default async function handler(req, res) {
         from: '"Innamo" <innamotravel@gmail.com>',
         to: 'innamotravel@gmail.com',
         replyTo: email,
-        subject: `New enquiry: ${name}${destination ? ' — ' + destination : ''}`,
+        subject: `New enquiry: ${name}${destination ? ' | ' + destination : ''}`,
         html: nesseEmail,
       }),
     ]);
