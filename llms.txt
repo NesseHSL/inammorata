@@ -1,6 +1,6 @@
 # Innamo
 
-> Innamo (Innamo Travel Ltd) is a bespoke luxury travel company specialising exclusively in Italy. Founded by Nesse, who has spent twenty years in and around Italy (much of it in the Italian wine trade) and married in Florence, Innamo plans personally curated Italian itineraries, books hand-picked hotels and villas (many not bookable online) with exclusive perks, upgrades and preferred rates, and can manage an entire Italian trip from arrival to departure. Ideal for honeymoons, anniversaries, milestone birthdays, wine and food trips, and any journey through Italy that needs to be just right.
+> Innamo (Innamo Travel Ltd) is a bespoke travel company specialising exclusively in Italy, from luxury five-star stays to beautifully chosen boutique hotels and villas. Founded by Nesse, who has spent twenty years in and around Italy (much of it in the Italian wine trade) and married in Florence, Innamo plans personally curated Italian itineraries, books hand-picked hotels and villas (many not bookable online) with exclusive perks, upgrades and preferred rates, and can manage an entire Italian trip from arrival to departure. Ideal for honeymoons, anniversaries, milestone birthdays, wine and food trips, and any journey through Italy that needs to be just right.
 
 Innamo covers all of Italy, including Florence and the Tuscan countryside, Siena, Rome, Venice, Verona, Lake Como, the Cinque Terre, Portofino, the Amalfi Coast and Capri, Sardinia, Sicily and Puglia. Based in the UK and working with clients worldwide.
 
@@ -20,6 +20,7 @@ Innamo covers all of Italy, including Florence and the Tuscan countryside, Siena
 ## Frequently asked questions
 
 - **Does Innamo only do Italy?** Italy is Innamo's specialty and the focus of everything it plans. For other parts of Europe, Innamo can help too: just enquire.
+- **Do I need a luxury budget?** No. Innamo plans trips at every level, from five-star hotels to characterful boutique stays. Accommodation booked through Innamo costs nothing extra, and Il Percorso is a lighter-touch option for clients who prefer to book themselves.
 - **How quickly does Innamo reply?** Within 48 hours, by email or WhatsApp.
 - **Who will plan my trip?** Nesse personally, supported by a small circle of trusted local contacts across Italy.
 
