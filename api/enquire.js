@@ -18,6 +18,7 @@ export default async function handler(req, res) {
   const esc = (v) => String(v ?? '').trim().slice(0, 4000)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   const body = req.body || {};
+  const plain = (v) => String(v ?? '').replace(/[\r\n]+/g, ' ').trim().slice(0, 200);
   const [name, email, dates, destination, tier, dream] =
     ['name', 'email', 'dates', 'destination', 'tier', 'dream'].map((k) => esc(body[k]));
 
@@ -162,7 +163,7 @@ export default async function handler(req, res) {
         from: '"Innamo" <innamotravel@gmail.com>',
         to: 'innamotravel@gmail.com',
         replyTo: email,
-        subject: `New enquiry: ${name}${destination ? ' | ' + destination : ''}`,
+        subject: `New enquiry: ${plain(body.name)}${body.destination ? ' | ' + plain(body.destination) : ''}`,
         html: nesseEmail,
       }),
     ]);
