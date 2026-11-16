@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 
 // Keep in sync with retreat-registration.html
 const PRICES = { shared: 3850, single: 4850 };
-const EARLY_BIRD_ENDS = new Date('2026-12-01T00:00:00Z'); // end of 30 Nov 2026, London time
+const EARLY_BIRD_ENDS = new Date('2026-12-16T00:00:00Z'); // end of 15 Dec 2026, London time
 const gbp = n => n.toLocaleString('en-GB', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
 const ROOM_LABELS = { shared: 'Shared Occupancy', single: 'Single Occupancy' };
 

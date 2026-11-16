@@ -215,13 +215,13 @@
           <input type="radio" name="roomType" value="shared" required>
           <span class="rf-radio-title">Shared Occupancy</span>
           <span class="rf-radio-price">&pound;3,850pp</span>
-          <span class="rf-cb-note rf-early-price" style="font-size:0.8rem;color:var(--terracotta)">&pound;3,465 if you book by 30 November</span>
+          <span class="rf-cb-note rf-early-price" style="font-size:0.8rem;color:var(--terracotta)">&pound;3,465 if you book by 15 December</span>
         </label>
         <label class="rf-radio-card">
           <input type="radio" name="roomType" value="single" required>
           <span class="rf-radio-title">Single Occupancy</span>
           <span class="rf-radio-price">&pound;4,850</span>
-          <span class="rf-cb-note rf-early-price" style="font-size:0.8rem;color:var(--terracotta)">&pound;4,365 if you book by 30 November</span>
+          <span class="rf-cb-note rf-early-price" style="font-size:0.8rem;color:var(--terracotta)">&pound;4,365 if you book by 15 December</span>
         </label>
       </div>
 
@@ -309,7 +309,7 @@
     <div class="rf-section">
       <p class="rf-section-label">Securing Your Place</p>
       <div class="rf-deposit-summary">
-        <p id="rf-early-banner"><strong>Book by 30 November and save 10%</strong>, whether you pay a deposit or in full. Pay in full by 30 November and your Castello di Ama wine tasting is on us too.</p>
+        <p id="rf-early-banner"><strong>Book by 15 December and save 10%</strong>, whether you pay a deposit or in full. Pay in full by 15 December and your Castello di Ama wine tasting is on us too.</p>
       </div>
       <p class="rf-note" style="margin-bottom:10px">How would you like to pay?</p>
       <div class="rf-radio-row" style="margin-bottom:18px">
@@ -321,7 +321,7 @@
         <label class="rf-radio-card">
           <input type="radio" name="paymentPlan" value="full" required>
           <span class="rf-radio-title">Pay in Full</span>
-          <span class="rf-cb-note rf-full-perk" style="font-size:0.8rem;color:rgba(44,24,16,0.6)">By 30 Nov: 10% off plus a free Castello di Ama tasting</span>
+          <span class="rf-cb-note rf-full-perk" style="font-size:0.8rem;color:rgba(44,24,16,0.6)">By 15 Dec: 10% off plus a free Castello di Ama tasting</span>
         </label>
       </div>
       <div class="rf-deposit-summary" id="rf-schedule" style="display:none"></div>
@@ -395,7 +395,7 @@
 
   // Keep in sync with api/register-retreat-details.js
   const PRICES = { shared: 3850, single: 4850 };
-  const EARLY_BIRD_ENDS = new Date('2026-12-01T00:00:00Z'); // end of 30 Nov 2026, London time
+  const EARLY_BIRD_ENDS = new Date('2026-12-16T00:00:00Z'); // end of 15 Dec 2026, London time
   const isEarlyBird = () => new Date() < EARLY_BIRD_ENDS;
   const gbp = n => '£' + n.toLocaleString('en-GB', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
   function quote(room, plan){
