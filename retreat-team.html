@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="/fonts/lejour-serif.otf" as="font" type="font/otf" crossorigin>
+  <link rel="canonical" href="https://www.innamo.travel/retreat/team">
+  <meta property="og:title" content="The Team | Wine &amp; Wellness Retreat | Innamo">
+  <meta property="og:description" content="Meet the team behind the Wine &amp; Wellness Retreat in Tuscany, run in partnership with HerSpace London: Nesse, Benji and Lottie.">
+  <meta property="og:url" content="https://www.innamo.travel/retreat/team">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Innamo">
+  <title>The Team | Wine &amp; Wellness Retreat | Innamo</title>
+  <meta name="description" content="Meet the team behind the Wine &amp; Wellness Retreat in Tuscany, run in partnership with HerSpace London: Nesse, Benji and Lottie.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+
+    @font-face {
+      font-family: 'LeJourSerif';
+      src: url('/fonts/lejour-serif.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    :root {
+      --cream:       #F5EFE0;
+      --cream-mid:   #EDE4CC;
+      --terracotta:  #C4622D;
+      --terra-dark:  #A8521F;
+      --espresso:    #2C1810;
+      --sage:        #8B9D77;
+      --font-logo:   'LeJourSerif', Georgia, serif;
+      --font-d:      'Cormorant Garamond', Georgia, serif;
+      --font-b:      'EB Garamond', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--espresso); font-family: var(--font-b); }
+
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 28px 48px;
+      background: linear-gradient(to bottom, rgba(44,24,16,0.55) 0%, transparent 100%);
+      transition: background 0.4s, padding 0.4s;
+    }
+    #nav.scrolled { background: rgba(44,24,16,0.92); padding: 18px 48px; }
+    .nav-logo { font-family: var(--font-logo); font-size: 1.35rem; letter-spacing: 0.18em; color: var(--cream); text-decoration: none; }
+    .nav-links { list-style: none; display: flex; gap: 40px; }
+    .nav-links a {
+      font-family: var(--font-b); font-size: 0.78rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(245,239,224,0.82); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cream); }
+
+    .sp-hero { position: relative; width: 100%; height: 92vh; min-height: 560px; overflow: hidden; display: flex; align-items: flex-end; }
+    .sp-hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
+    .sp-hero-veil {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(44,24,16,0.85) 0%, rgba(44,24,16,0.28) 55%, rgba(44,24,16,0.12) 100%);
+      z-index: 1;
+    }
+    .sp-hero-text { position: relative; z-index: 2; padding: 0 72px 88px; }
+    .sp-hero-eyebrow { font-family: var(--font-b); font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 16px; }
+    .sp-hero-title {
+      font-family: var(--font-logo); font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 400; color: var(--cream); line-height: 1; letter-spacing: 0.08em; margin-bottom: 10px;
+    }
+    .sp-hero-sub { font-family: var(--font-d); font-size: clamp(1.1rem, 2vw, 1.5rem); font-style: italic; font-weight: 300; color: rgba(245,239,224,0.78); }
+
+    .sp-body { max-width: 740px; margin: 0 auto; padding: 96px 40px 40px; }
+    .sp-eyebrow { font-family: var(--font-b); font-size: 0.68rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 20px; }
+    .sp-title { font-family: var(--font-d); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400; font-style: italic; line-height: 1.2; color: var(--espresso); margin-bottom: 24px; }
+    .sp-body p { font-family: var(--font-b); font-size: 1.08rem; line-height: 1.85; color: rgba(44,24,16,0.82); margin-bottom: 18px; }
+    .sp-body p:last-child { margin-bottom: 0; }
+
+    /* VIDEO TRIO */
+    .move-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1180px; margin: 40px auto 100px; padding: 0 40px; }
+    .move-trio.move-single { grid-template-columns: 1fr; max-width: 700px; }
+    .move-single .move-thumb { height: 420px; }
+    .move-item { display: flex; flex-direction: column; }
+    .move-thumb { overflow: hidden; background: var(--cream-mid); height: 480px; position: relative; }
+    .move-thumb video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .move-caption { margin-top: 12px; font-family: var(--font-b); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(44,24,16,0.5); }
+
+    /* FORMAT PANEL */
+    .format-panel { background: var(--espresso); color: var(--cream); padding: 80px 40px; }
+    .format-inner { max-width: 700px; margin: 0 auto; }
+    .format-panel .sp-eyebrow { color: rgba(196,98,45,0.85); }
+    .format-title { font-family: var(--font-d); font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-style: italic; color: var(--cream); margin-bottom: 24px; line-height: 1.2; }
+    .format-panel p { font-family: var(--font-b); font-size: 1.05rem; line-height: 1.85; color: rgba(245,239,224,0.78); margin-bottom: 16px; }
+    .format-panel p:last-child { margin-bottom: 0; }
+
+    .sp-cross { background: var(--cream-mid); padding: 80px 40px; text-align: center; }
+    .sp-cross-title { font-family: var(--font-d); font-style: italic; font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 40px; color: var(--espresso); }
+    .sp-cross-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; font-family: var(--font-b); font-size: 0.72rem; letter-spacing: 0.22em;
+      text-transform: uppercase; text-decoration: none; color: var(--cream); background: var(--terracotta);
+      padding: 18px 44px; border: 1px solid var(--terracotta); cursor: pointer; transition: background 0.25s, color 0.25s;
+    }
+    .btn:hover { background: var(--terra-dark); }
+    .btn-ghost { background: transparent; border: 1px solid rgba(44,24,16,0.3); color: var(--espresso); }
+    .btn-ghost:hover { background: rgba(44,24,16,0.06); }
+
+    footer { background: var(--espresso); text-align: center; padding: 56px 40px 48px; border-top: 1px solid rgba(245,239,224,0.08); }
+    .foot-logo { font-family: var(--font-logo); font-size: 1.6rem; letter-spacing: 0.2em; color: var(--cream); margin-bottom: 10px; }
+    .foot-strap { font-family: var(--font-b); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,239,224,0.35); margin-bottom: 40px; }
+    .foot-links { display: flex; justify-content: center; gap: 36px; margin-bottom: 48px; }
+    .foot-links a { color: rgba(245,239,224,0.45); transition: color 0.2s; text-decoration: none; }
+    .foot-links a:hover { color: var(--cream); }
+    .foot-links svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .foot-copy { font-family: var(--font-b); font-size: 0.7rem; letter-spacing: 0.12em; color: rgba(245,239,224,0.22); }
+
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.15s; }
+    .d2 { transition-delay: 0.30s; }
+
+    @media (max-width: 900px) {
+      .move-trio { grid-template-columns: 1fr; }
+      .move-thumb { height: 380px; }
+    }
+    @media (max-width: 768px) {
+      #nav { padding: 22px 28px; }
+      #nav.scrolled { padding: 14px 28px; }
+      .sp-hero-text { padding: 0 28px 56px; }
+      .sp-body { padding: 64px 28px 24px; }
+      .move-trio { padding: 0 20px; gap: 16px; }
+      .format-panel { padding: 48px 28px; }
+      .sp-cross { padding: 56px 28px; }
+    }
+    @media (max-width: 540px) {
+      .nav-links { display: none; }
+    }
+
+
+    /* TEAM */
+    .team-partner { text-align:center; max-width:640px; margin:0 auto; padding:0 40px 24px; }
+    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; max-width:1180px; margin:48px auto 100px; padding:0 40px; }
+    .team-photo { height:440px; overflow:hidden; background:var(--cream-mid); }
+    .team-photo img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+    .team-name { font-family:var(--font-d); font-style:italic; font-size:1.7rem; margin:22px 0 4px; color:var(--espresso); }
+    .team-role { font-family:var(--font-b); font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--terracotta); margin-bottom:14px; }
+    .team-bio { font-family:var(--font-b); font-size:1.02rem; line-height:1.75; color:rgba(44,24,16,0.82); }
+    @media (max-width:900px){ .team-grid{ grid-template-columns:1fr; gap:56px; } .team-photo{ height:420px; } }
+    /* ETHOS */
+    .ethos-list { max-width:740px; margin:0 auto; padding:0 40px 100px; }
+    .ethos-item { border-left:2px solid var(--terracotta); padding:6px 0 6px 28px; margin-bottom:44px; }
+    .ethos-item h3 { font-family:var(--font-d); font-style:italic; font-weight:400; font-size:1.6rem; margin-bottom:12px; color:var(--espresso); }
+    .ethos-item p { font-family:var(--font-b); font-size:1.06rem; line-height:1.85; color:rgba(44,24,16,0.82); }
+    .sp-hero > img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+  </style>
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="/" class="nav-logo"><img src="/innamo-logo-nav.png" alt="Innamo" style="height:22px;width:auto;display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="/retreat">The Retreat</a></li>
+      <li><a href="/retreat/villa">The Villa</a></li>
+      <li><a href="/retreat/movement">Movement</a></li>
+      <li><a href="/retreat/investment">The Investment</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="sp-hero">
+    <img src="/retreat-gallery-dining.jpg" alt="">
+    <div class="sp-hero-veil"></div>
+    <div class="sp-hero-text">
+      <p class="sp-hero-eyebrow">Who You&rsquo;ll Meet</p>
+      <h1 class="sp-hero-title">The Team</h1>
+      <p class="sp-hero-sub">Run in partnership with HerSpace London.</p>
+    </div>
+  </section>
+
+  <div class="sp-body">
+    <p class="sp-eyebrow fade-up">Who&rsquo;ll Look After You</p>
+    <h2 class="sp-title fade-up d1">A small team. A very big welcome.</h2>
+    <p class="fade-up d2">The retreat is run in partnership with HerSpace London, a boutique women&rsquo;s health studio in Parsons Green, SW London. Expect the same warm, unpretentious, laughter-filled style the studio is known for, with three familiar faces making sure every part of your week runs beautifully.</p>
+  </div>
+
+  <div class="team-grid">
+    <div class="fade-up">
+      <div class="team-photo"><img src="/retreat-team-nesse.jpg" alt="Hillary Nesse Cannon"></div>
+      <h3 class="team-name">Hillary &lsquo;Nesse&rsquo; Cannon</h3>
+      <p class="team-role">Barre &middot; Nutrition &middot; Italian at Heart</p>
+      <p class="team-bio">Clinical nutritionist (MSc), trainer and founder of HerSpace, Nesse brings mat-based barre classes and nutritionally balanced menus to your week. She has personally organised every detail of this retreat and is your go-to for anything you need at Villa Cecconi (unless she&rsquo;s had a little too much Chianti, in which case she&rsquo;ll delegate). No one does luxury quite like Nesse. And no one has ever loved Italy more.</p>
+    </div>
+    <div class="fade-up d1">
+      <div class="team-photo"><img src="/retreat-team-taylor.jpg" alt="Taylor Benji Benjamin"></div>
+      <h3 class="team-name">Taylor &lsquo;Benji&rsquo; Benjamin</h3>
+      <p class="team-role">Movement &middot; Sparkle &middot; Good Vibes</p>
+      <p class="team-bio">Master trainer, PT, dancer and movement coach, Benji is our very own Bar(re)tender. He&rsquo;ll lead sunrise and sunset restorative movement classes, offer optional PT sessions, and generally make sure vibes are high, guests are happy and dogs are downward-facing.</p>
+    </div>
+    <div class="fade-up d2">
+      <div class="team-photo"><img src="/retreat-team-charlotte.jpg" alt="Charlotte Lottie Baldwin"></div>
+      <h3 class="team-name">Charlotte &lsquo;Lottie&rsquo; Baldwin</h3>
+      <p class="team-role">Private Chef &middot; Good Food &middot; Good Vibes</p>
+      <p class="team-bio">Lottie trained in some of England&rsquo;s best kitchens, including The Port Hotel, and has cooked alongside some of Britain&rsquo;s great chefs. She creates fresh, seasonal feasts made for sharing, with a particular passion for healthy salads and generous platters, perfect under the Tuscan sun.</p>
+    </div>
+  </div>
+
+  <!-- CROSS LINKS -->
+  <section class="sp-cross">
+    <p class="sp-cross-title fade-up">Ready to join us?</p>
+    <div class="sp-cross-links fade-up d1">
+      <a href="/retreat/investment" class="btn">See The Investment</a>
+      <a href="/retreat/environment" class="btn btn-ghost">The Environment</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-logo">Innamo</div>
+    <p class="foot-strap">For the love of Italy</p>
+    <div class="foot-links">
+      <a href="https://instagram.com/innamo_travel" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07
+            3.252.148 4.771 1.691 4.919 4.919
+            .058 1.265.069 1.645.069 4.849
+            0 3.205-.012 3.584-.069 4.849
+            -.149 3.225-1.664 4.771-4.919 4.919
+            -1.266.058-1.644.07-4.85.07
+            -3.204 0-3.584-.012-4.849-.07
+            -3.26-.149-4.771-1.699-4.919-4.92
+            -.058-1.265-.07-1.644-.07-4.849
+            0-3.204.013-3.583.07-4.849
+            .149-3.227 1.664-4.771 4.919-4.919
+            1.266-.057 1.645-.069 4.849-.069z
+            m0-2.163c-3.259 0-3.667.014-4.947.072
+            -4.358.2-6.78 2.618-6.98 6.98
+            -.059 1.281-.073 1.689-.073 4.948
+            0 3.259.014 3.668.072 4.948
+            .2 4.358 2.618 6.78 6.98 6.98
+            1.281.058 1.689.072 4.948.072
+            3.259 0 3.668-.014 4.948-.072
+            4.354-.2 6.782-2.618 6.979-6.98
+            .059-1.28.073-1.689.073-4.948
+            0-3.259-.014-3.667-.072-4.947
+            -.196-4.354-2.617-6.78-6.979-6.98
+            -1.281-.059-1.69-.073-4.949-.073z
+            m0 5.838c-3.403 0-6.162 2.759-6.162 6.162
+            s2.759 6.163 6.162 6.163
+            6.162-2.759 6.162-6.163
+            c0-3.403-2.759-6.162-6.162-6.162z
+            m0 10.162c-2.209 0-4-1.79-4-4
+            0-2.209 1.791-4 4-4s4 1.791 4 4
+            c0 2.21-1.791 4-4 4z
+            m6.406-11.845c-.796 0-1.441.645-1.441 1.44
+            s.645 1.44 1.441 1.44
+            c.795 0 1.439-.645 1.439-1.44
+            s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        @innamo_travel
+      </a>
+      <a href="mailto:innamotravel@gmail.com">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9
+            2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+        innamotravel@gmail.com
+      </a>
+    </div>
+    <p class="foot-copy">Personally curated Italian travel &nbsp;&middot;&nbsp; Est. 2026</p>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+    const faders = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    faders.forEach(f => observer.observe(f));
+  </script>
+
+</body>
+</html>
