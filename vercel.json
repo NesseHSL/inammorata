@@ -75,10 +75,6 @@
     {
       "source": "/retreat/register",
       "destination": "/retreat-registration.html"
-    },
-    {
-      "source": "/london",
-      "destination": "/london.html"
     }
   ],
   "redirects": [
@@ -90,6 +86,16 @@
     {
       "source": "/sardinia",
       "destination": "/#enquire",
+      "permanent": false
+    },
+    {
+      "source": "/london",
+      "destination": "/retreat",
+      "permanent": false
+    },
+    {
+      "source": "/london.html",
+      "destination": "/retreat",
       "permanent": false
     }
   ]
