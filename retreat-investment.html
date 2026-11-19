@@ -453,6 +453,7 @@
         regForm.reset();
         regForm.querySelectorAll('.reg-row, .reg-submit, .reg-note').forEach(el => el.style.display = 'none');
         successEl.style.display = 'block';
+        if (typeof window.gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18578278209/qUA3CJ2gsLsdEMGO6JpF'});
       } catch (err) {
         errorEl.style.display = 'block';
         btn.disabled = false;
