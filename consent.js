@@ -1,19 +1,26 @@
-/* Innamo cookie consent + Google tag (AW-18578278209). The Google tag only loads after the visitor accepts. */
+/* Innamo cookie consent + Google tag (AW-18578278209), using Google Consent Mode v2.
+   The tag always loads, but with ad storage DENIED until the visitor accepts: no cookies are
+   set, and Google only receives cookieless signals it uses to estimate conversions.
+   Accepting switches consent to granted. */
 (function () {
   var TAG = 'AW-18578278209', KEY = 'innamo_cookie_consent';
+  var GRANTED = { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' };
+  var DENIED  = { ad_storage: 'denied',  ad_user_data: 'denied',  ad_personalization: 'denied',  analytics_storage: 'denied' };
   function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
   function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
-  function loadTag() {
+  function loadTag(granted) {
     if (window.__innamoTag) return; window.__innamoTag = true;
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { dataLayer.push(arguments); };
-    gtag('consent', 'default', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' });
+    gtag('consent', 'default', granted ? GRANTED : DENIED);
+    gtag('set', 'ads_data_redaction', true);
     gtag('js', new Date());
     gtag('config', TAG);
     var s = document.createElement('script'); s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + TAG;
     document.head.appendChild(s);
   }
+  function grant() { if (window.gtag) gtag('consent', 'update', GRANTED); }
   function banner() {
     var css = document.createElement('style');
     css.textContent =
@@ -32,12 +39,12 @@
       'Nothing is set unless you say yes.</p><div class="cc-btns">' +
       '<button type="button" class="cc-no">Decline</button><button type="button" class="cc-yes">Accept</button></div>';
     document.body.appendChild(d);
-    d.querySelector('.cc-yes').onclick = function () { set('granted'); d.remove(); loadTag(); };
+    d.querySelector('.cc-yes').onclick = function () { set('granted'); d.remove(); grant(); };
     d.querySelector('.cc-no').onclick = function () { set('denied'); d.remove(); };
   }
   var c = get();
-  if (c === 'granted') loadTag();
-  else if (c !== 'denied') {
+  loadTag(c === 'granted');
+  if (c !== 'granted' && c !== 'denied') {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', banner); else banner();
   }
 })();
