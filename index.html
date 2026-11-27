@@ -1540,6 +1540,7 @@
         if (!res.ok) throw new Error('Request failed');
         enquiryForm.querySelectorAll('.f-row, .f-submit').forEach(el => el.style.display = 'none');
         document.getElementById('enquiry-success').style.display = 'block';
+        if (typeof window.gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18578278209/2XDsCMfF0MAdEMGO6JpF'});
       } catch (err) {
         document.getElementById('enquiry-error').style.display = 'block';
         enquiryBtn.disabled = false;
